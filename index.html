@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./icon.png">
 <title>鲸鱼 · 本地 AI 角色扮演</title>
-  <script type="module" crossorigin src="./assets/index-DVcDF2lv.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BRGFjR-J.css">
+  <script type="module" crossorigin src="./assets/index-BF2dsvjD.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BjKzLAWm.css">
 </head>
 <body>
 
@@ -25,7 +25,6 @@
     <div class="railfoot">
       <button class="btn ghost" id="themeBtn" type="button"><span class="ico" data-icon="moon"></span><span id="themeLabel">深色</span></button>
       <a class="raillink" href="#/about" data-route="about"><span class="ico" data-icon="home"></span>介绍 / 下载</a>
-      <span class="railstatus" id="railStatus"></span>
     </div>
   </aside>
 
@@ -49,7 +48,7 @@
           <button class="btn primary" id="send" type="button"><span class="ico" data-icon="send"></span><span id="sendLabel">发送</span></button>
         </div>
         <div class="chattools">
-          <button class="btn ghost" id="suggestBtn" type="button"><span class="ico" data-icon="sparkle"></span>灵感回复</button>
+          <button class="btn ghost" id="suggestBtn" type="button"><span class="ico" data-icon="sparkle"></span><span id="suggestLabel">灵感回复</span></button>
           <button class="btn ghost" id="imgBtn" type="button"><span class="ico" data-icon="image"></span>生图</button>
           <span class="note" id="chatStat"></span>
           <span class="note chatHint" id="chatHint"></span>
@@ -62,26 +61,12 @@
       <header class="viewhead">
         <h2><span class="ico" data-icon="cards"></span>角色卡</h2>
         <div class="headacts">
-          <button class="btn ghost" id="genToggle" type="button"><span class="ico" data-icon="sparkle"></span>AI 生成</button>
-          <button class="btn ghost" id="pasteToggle" type="button"><span class="ico" data-icon="clipboard"></span>粘贴 JSON</button>
-          <button class="btn ghost" id="pickImport" type="button"><span class="ico" data-icon="upload"></span>导入文件</button>
-          <button class="btn primary" id="cardNew" type="button"><span class="ico" data-icon="plus"></span>新建</button>
+          <button class="btn primary" id="cardNew" type="button"><span class="ico" data-icon="plus"></span>新建 / 导入</button>
         </div>
       </header>
       <div class="split" id="cardsSplit">
         <div class="pane-list">
           <input type="file" id="importFile" accept="image/*,.json,application/json" hidden>
-          <div id="pasteBox" class="inlinebox" hidden>
-            <textarea id="cardJson" placeholder="把角色卡 JSON 粘贴到这里……"></textarea>
-            <div class="row"><button class="btn primary" id="importJson" type="button">导入这张卡</button></div>
-          </div>
-          <div class="inlinebox" id="genPanel" hidden>
-            <label>一句话描述你想要的角色
-              <textarea id="genDesc" placeholder="例如：深夜书店的店主，话少，习惯给晚归的人留一盏灯。"></textarea>
-            </label>
-            <div class="row"><button class="btn primary" id="genBtn" type="button"><span class="ico" data-icon="sparkle"></span>生成角色卡</button><span class="note" id="genStat"></span></div>
-            <textarea id="genOut" class="mono" placeholder="生成结果会出现在这里……" readonly></textarea>
-          </div>
           <p class="note" id="cardStat"></p>
           <div class="cardgrid" id="cardGrid"></div>
         </div>
@@ -115,8 +100,7 @@
       <header class="viewhead">
         <h2><span class="ico" data-icon="book"></span>世界书</h2>
         <div class="headacts">
-          <button class="btn ghost" id="importBookBtn" type="button"><span class="ico" data-icon="upload"></span>导入 JSON</button>
-          <button class="btn primary" id="bookNew" type="button"><span class="ico" data-icon="plus"></span>新建</button>
+          <button class="btn primary" id="bookNew" type="button"><span class="ico" data-icon="plus"></span>新建 / 导入</button>
         </div>
       </header>
       <div class="split" id="booksSplit">
@@ -149,28 +133,35 @@
       <div class="settingsgrid">
         <section class="panel">
           <h3><span class="ico" data-icon="key"></span>模型与 Key</h3>
+          <p class="note">每家服务商的地址、模型与 Key 分开保存；点一行切换过去，聊天就用这一家。</p>
+          <div class="provlist" id="provList"></div>
+          <div class="subhead" id="provFormTitle">这家服务商的设置</div>
           <label>服务商<select id="provSel"></select></label>
-          <label>模型（可下拉选，也可手填）
-            <input id="modelInput" list="modelList" placeholder="model-id">
+          <label>接口地址（Base URL）<input id="baseInput" placeholder="https://api.example.com/v1"></label>
+          <label>模型
+            <span class="fieldrow">
+              <select id="modelPick"></select>
+              <button class="btn ghost" id="syncModels" type="button"><span class="ico" data-icon="refresh"></span>同步列表</button>
+            </span>
+            <input id="modelInput" list="modelList" class="mono" placeholder="或手动填写模型 ID">
             <datalist id="modelList"></datalist>
           </label>
           <label>生图模型（可选）
             <input id="imgModelInput" placeholder="如 cogview-3-flash / Kwai-Kolors/Kolors">
           </label>
           <label>API Key<input id="keyInput" type="password" autocomplete="off" placeholder="sk-…（只保存在本机）"></label>
-          <div id="customBox" hidden><label>Base URL<input id="baseInput" placeholder="https://api.example.com/v1"></label></div>
           <div class="row">
-            <button class="btn primary" id="saveCfg" type="button"><span class="ico" data-icon="check"></span>保存</button>
-            <button class="btn ghost" id="clearCfg" type="button"><span class="ico" data-icon="trash"></span>清除 Key</button>
+            <button class="btn primary" id="saveCfg" type="button"><span class="ico" data-icon="check"></span>保存并使用</button>
+            <button class="btn ghost" id="clearCfg" type="button"><span class="ico" data-icon="trash"></span>清除这家 Key</button>
           </div>
           <p class="note" id="settingsSummary"></p>
-          <p class="note">Key 以此设备上的浏览器密钥加密存放（WebCrypto）；安全性弱于 App 端系统级钥匙串，建议只在自己手机上用。豆包、腾讯、MiniMax 不允许网页直连。</p>
+          <p class="note">Key 以此设备上的浏览器密钥加密存放（WebCrypto），每家一把；安全性弱于 App 端系统级钥匙串，建议只在自己手机上用。豆包、腾讯、MiniMax 不允许网页直连。</p>
         </section>
 
         <section class="panel">
           <h3><span class="ico" data-icon="image"></span>AI 生图测试</h3>
           <p class="note">用设置里的生图模型画一张，验证这家服务商允许网页直连。</p>
-          <label>生图描述<textarea id="imgDesc" rows="3" placeholder="例如：深夜书店，暖黄台灯，窗上雨痕，写实漫画风格。"></textarea></label>
+          <label>生图描述<textarea id="imgDesc" rows="3" placeholder="例如：冒险者公会的大厅，炉火与告示板，暖褐金调，写实漫画风格。"></textarea></label>
           <div class="row"><button class="btn primary" id="imgGenBtn" type="button"><span class="ico" data-icon="sparkle"></span>试画一张</button><span class="note" id="imgStat"></span></div>
           <img id="imgOut" class="genimg" alt="生成结果" hidden>
         </section>
@@ -229,13 +220,13 @@
               <div class="pw-bar"><span></span><span></span><span></span><b>鲸鱼 · 工作台</b></div>
               <div class="pw-chat">
                 <div class="pw-head">
-                  <img src="./cards/card-shiguang-linwantang.png" alt="">
-                  <div><b>林晚棠</b><small>深夜书店的主理人</small></div>
-                  <span class="tag">世界书 · 雨夜书店</span>
+                  <img src="./cards/card-ailin-mofa.png" alt="">
+                  <div><b>艾琳</b><small>冒险者公会的柜台小姐</small></div>
+                  <span class="tag">世界书 · 阿瓦隆大陆</span>
                 </div>
                 <div class="pw-msgs">
-                  <div class="pw-msg me">外面下雨了，你还在吗？</div>
-                  <div class="pw-msg"><img src="./cards/card-shiguang-linwantang.png" alt=""><div>（放下手里的书，往窗外看了一眼。）<br>「进来吧，伞放门口。」</div></div>
+                  <div class="pw-msg me">那张找人的单子，我接。</div>
+                  <div class="pw-msg"><img src="./cards/card-ailin-mofa.png" alt=""><div>（她把笔搁进墨水瓶，认真看了你一眼。）<br>「名字写这里。想清楚了再写。」</div></div>
                 </div>
                 <div class="pw-composer">说点什么…… <span class="ico" data-icon="send"></span></div>
               </div>
@@ -248,13 +239,13 @@
           <p class="sub">一问一答，你来点、它来答——回复是预录的（不是实时生成），零设置可看。</p>
           <div class="chatpanel">
             <div class="chathead">
-              <img class="avatar" id="demoAvatar" src="./cards/card-shiguang-linwantang.png" alt="" loading="lazy">
-              <div class="headmeta"><b>林晚棠</b><span>示例角色卡 · 深夜书店</span></div>
+              <img class="avatar" id="demoAvatar" src="./cards/card-ailin-mofa.png" alt="" loading="lazy">
+              <div class="headmeta"><b>艾琳</b><span>示例角色卡 · 冒险者公会</span></div>
               <span class="tag">演示 · 预录</span>
             </div>
             <div class="msgs demoMsgs" id="demoBox"></div>
             <div class="choices" id="demoChoices"></div>
-            <div class="chattools"><button class="btn ghost" id="demoReplay" type="button"><span class="ico" data-icon="refresh"></span>重新播放</button><span class="note" id="demoHint"></span></div>
+            <div class="chattools"><button class="btn ghost" id="demoReplay" type="button"><span class="ico" data-icon="refresh"></span><span id="demoReplayLabel">重新播放</span></button><span class="note" id="demoHint"></span></div>
           </div>
           <p class="note">想真聊？去<a href="#/chat">工作台</a>，先在设置里填一个你自己的模型 Key；请求由你的浏览器直连服务商。</p>
         </section>
