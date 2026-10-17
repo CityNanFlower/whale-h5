@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./icon.png">
 <title>鲸鱼 · 本地 AI 角色扮演</title>
-  <script type="module" crossorigin src="./assets/index-DSb1B82H.js"></script>
+  <script type="module" crossorigin src="./assets/index-DPei7fX5.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-CCeiR5Bs.css">
 </head>
 <body data-route="about">
@@ -233,9 +233,23 @@
               <h2>生图</h2>
               <p class="note">会话里点「生图」时使用；与对话服务商分开配置。</p>
               <div class="formbox">
-                <div class="field"><span>生图模型</span><input id="imgModelInput" class="in" placeholder="如 cogview-3-flash / Kwai-Kolors/Kolors" aria-label="生图模型"></div>
+                <div class="field"><span>生图服务商</span><select id="imgProvSel" class="in" aria-label="生图服务商"></select></div>
+                <div class="field"><span>服务商地址</span><input id="imgBaseInput" class="in" placeholder="https://api.example.com/v1" aria-label="生图服务商地址"></div>
+                <div class="field"><span>生图模型</span>
+                  <span class="fieldrow">
+                    <input id="imgModelInput" list="imgModelList" class="in mono" placeholder="如 GLM-Image / Kwai-Kolors/Kolors" aria-label="生图模型">
+                    <datalist id="imgModelList"></datalist>
+                  </span>
+                </div>
+                <div class="field"><span>API KEY</span><input id="imgKeyInput" class="in key" type="password" autocomplete="off" placeholder="sk-…（只保存在本机）" aria-label="生图 API Key"></div>
                 <div class="field"><span>试画描述</span><textarea id="imgDesc" class="in" rows="3" placeholder="例如：冒险者公会的大厅，炉火与告示板，暖褐金调，写实漫画风格。"></textarea></div>
-                <div class="form-acts"><button class="btn primary" id="imgGenBtn" type="button"><span class="ico" data-icon="sparkle"></span>试画一张</button><span class="prov-state" id="imgStat"></span></div>
+                <div class="form-acts">
+                  <button class="btn primary" id="imgSaveCfg" type="button"><span class="ico" data-icon="check"></span>保存生图配置</button>
+                  <button class="btn" id="imgGenBtn" type="button"><span class="ico" data-icon="sparkle"></span>试画一张</button>
+                  <button class="btn danger" id="imgClearKey" type="button"><span class="ico" data-icon="trash"></span>清除生图 Key</button>
+                  <span class="prov-state" id="imgStat"></span>
+                </div>
+                <p class="form-note" id="imgSummary"></p>
                 <img id="imgOut" class="genimg" alt="生成结果" hidden>
               </div>
             </div>
