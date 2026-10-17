@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./icon.png">
 <title>鲸鱼 · 本地 AI 角色扮演</title>
-  <script type="module" crossorigin src="./assets/index-C5eqzpSf.js"></script>
+  <script type="module" crossorigin src="./assets/index-DDDni_KH.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-CCeiR5Bs.css">
 </head>
 <body data-route="about">
@@ -212,11 +212,10 @@
                 <div class="field"><span>服务商地址</span><input id="baseInput" class="in" placeholder="https://api.example.com/v1" aria-label="服务商地址"></div>
                 <div class="field"><span>模型</span>
                   <span class="fieldrow">
-                    <select id="modelPick" class="in" aria-label="模型"></select>
+                    <input id="modelInput" list="modelList" class="in mono" placeholder="模型 ID（可手填或从候选选）" aria-label="模型 ID">
                     <button class="btn sm" id="syncModels" type="button"><span class="ico" data-icon="refresh"></span>同步</button>
+                    <datalist id="modelList"></datalist>
                   </span>
-                  <input id="modelInput" list="modelList" class="in mono" placeholder="或手动填写模型 ID" aria-label="模型 ID">
-                  <datalist id="modelList"></datalist>
                 </div>
                 <div class="field"><span>API KEY</span><input id="keyInput" class="in key" type="password" autocomplete="off" placeholder="sk-…（只保存在本机）" aria-label="API Key"></div>
                 <div class="form-acts">
