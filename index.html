@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./icon.png">
 <title>鲸鱼 · 本地 AI 角色扮演</title>
-  <script type="module" crossorigin src="./assets/index-Chc2qk2P.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CCeiR5Bs.css">
+  <script type="module" crossorigin src="./assets/index-CM_ZIy_W.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CxsNk7LI.css">
 </head>
 <body data-route="about">
 
@@ -320,10 +320,13 @@
         </svg>
 
         <header class="shore-top">
-          <a class="shore-brand" href="#/about">
-            <img class="shore-logo" src="./icon.png" alt="">
-            <span class="shore-brandtxt">鲸鱼<small>WHALE / LOCAL ROLEPLAY</small></span>
-          </a>
+          <div class="shore-brandwrap">
+            <a class="shore-brand" href="#/about">
+              <img class="shore-logo" src="./icon.png" alt="">
+              <span class="shore-brandtxt">鲸鱼<small>WHALE / LOCAL ROLEPLAY</small></span>
+            </a>
+            <span class="shore-chip">推广体验版</span>
+          </div>
           <nav class="shore-nav" aria-label="介绍页">
             <button type="button" data-scroll="shore-demo">体验</button>
             <button type="button" data-scroll="shore-cast">角色</button>
@@ -333,7 +336,8 @@
             <button type="button" data-scroll="shore-download">下载</button>
           </nav>
           <div class="shore-actions">
-            <span class="shore-chip">推广体验版</span>
+            <a class="shore-pill" href="https://github.com/CityNanFlower/whale" target="_blank" rel="noopener"><span class="ico" data-icon="github"></span><span>GitHub</span></a>
+            <a class="shore-pill" href="https://ncnsnhd97qtl.feishu.cn/share/base/shrcnSLW2NhCHINp7tsP88tYUWb" target="_blank" rel="noopener"><span class="ico" data-icon="feedback"></span><span>反馈</span></a>
             <div class="shore-theme" role="group" aria-label="主题">
               <button type="button" data-ltheme="light">浅滩</button>
               <button type="button" data-ltheme="dark">深海</button>
@@ -365,8 +369,8 @@
             <p class="shore-lead">本地 AI 角色扮演。导入角色卡就能聊；聊天记录、世界书和 Key 都只存在本机。</p>
             <div class="row landing-cta shore-ctas">
               <a class="btn primary big" href="#/chat">立即体验 <span class="arw">→</span></a>
-              <a class="btn ghost os-android" href="#shore-download" data-scroll="shore-download"><span class="ico" data-icon="android"></span>下载 Android 版</a>
-              <a class="btn ghost os-windows" href="#shore-download" data-scroll="shore-download"><span class="ico" data-icon="windows"></span>下载 Windows 版</a>
+              <a class="btn ghost os-android" href="#shore-download" data-download="android"><span class="ico" data-icon="android"></span>下载 Android 版</a>
+              <a class="btn ghost os-windows" href="#shore-download" data-download="windows"><span class="ico" data-icon="windows"></span>下载 Windows 版</a>
               <span class="btn ghost os-ios">iOS 暂未开放</span>
             </div>
             <p class="shore-micro">无需注册 · 覆盖安装不丢数据</p>
@@ -502,8 +506,8 @@
 
             <section class="shore-spec" id="shore-download">
               <div class="shore-spec-head"><p>获取正版 / DOWNLOAD</p><h2>下载。</h2></div>
-              <p class="shore-body">安装包在 GitHub。当前内测版；覆盖安装不丢数据。</p>
-              <div class="wxtip" id="wxTip" hidden>微信里打不开 GitHub 链接：点右上角 <b>⋯</b> → <b>在浏览器打开</b>；或先点下面的按钮复制链接，再到浏览器 / 电脑上打开。</div>
+              <p class="shore-body">点按钮直接下载最新内测版；覆盖安装不丢数据。</p>
+              <div class="wxtip" id="wxTip" hidden>微信里不能直接下载安装包：点右上角 <b>⋯</b> → <b>在浏览器打开</b>，再回来点下载。</div>
               <div class="dl-tabs" role="tablist" aria-label="选择平台">
                 <button class="dl-tab" type="button" role="tab" data-platform="android"><span class="ico" data-icon="android"></span>Android</button>
                 <button class="dl-tab" type="button" role="tab" data-platform="windows"><span class="ico" data-icon="windows"></span>Windows</button>
@@ -514,22 +518,20 @@
                 <div class="dlpanel shore-dlpanel" data-panel="android">
                   <div class="shore-dl-main">
                     <h3>Android 安装包</h3>
-                    <p class="shore-ver">v0.3.1-alpha.2 · 内测版</p>
+                    <p class="shore-ver">内测版 · 始终为最新版本</p>
                     <dl class="shore-dl-facts">
                       <div><dt>文件</dt><dd>whale.apk</dd></div>
                       <div><dt>要求</dt><dd>Android 8.0 及以上</dd></div>
-                      <div><dt>校验</dt><dd>0fb0621c…0e6f45</dd></div>
                     </dl>
                   </div>
                   <div class="shore-dl-side">
-                    <button class="btn primary" id="dlAndroid" type="button">复制安卓安装包链接</button>
-                    <p class="urls" id="dlUrlAndroid"></p>
+                    <a class="btn primary" id="dlAndroid" href="#shore-download">下载 Android 安装包</a>
                   </div>
                 </div>
                 <div class="dlpanel shore-dlpanel" data-panel="windows" hidden>
                   <div class="shore-dl-main">
                     <h3>Windows 桌面版</h3>
-                    <p class="shore-ver">v1.8.1 · 内测版</p>
+                    <p class="shore-ver">内测版 · 始终为最新版本</p>
                     <dl class="shore-dl-facts">
                       <div><dt>安装器</dt><dd>whale-setup.exe</dd></div>
                       <div><dt>便携包</dt><dd>whale-win.zip（免安装）</dd></div>
@@ -537,9 +539,8 @@
                     </dl>
                   </div>
                   <div class="shore-dl-side">
-                    <button class="btn primary" id="dlWin" type="button">复制 Windows 安装器链接</button>
-                    <button class="btn ghost" id="dlZip" type="button">复制 Windows 便携包链接</button>
-                    <p class="urls" id="dlUrlWin"></p>
+                    <a class="btn primary" id="dlWin" href="#shore-download">下载 Windows 安装器</a>
+                    <a class="btn ghost" id="dlZip" href="#shore-download">下载免安装便携包</a>
                   </div>
                 </div>
                 <div class="dlpanel shore-dlpanel" data-panel="ios" hidden>
@@ -554,23 +555,46 @@
               </div>
               <div class="shore-dl-foot">
                 <p class="star">GitHub Star 是最好的支持。</p>
-                <p class="note">暂无 iOS 版。<a href="https://github.com/CityNanFlower/whale/releases" target="_blank" rel="noopener">全部版本 →</a></p>
               </div>
             </section>
           </div>
         </div>
 
         <footer class="shore-foot">
-          <div class="shore-foot-brand">
-            <img class="shore-logo small" src="./icon.png" alt="">
-            <b>鲸鱼</b>
-            <span>纯本地 BYOK 的 AI 角色扮演 App · AGPL-3.0</span>
+          <div class="shore-foot-main">
+            <div class="shore-foot-brand">
+              <img class="shore-logo small" src="./icon.png" alt="">
+              <div>
+                <b>鲸鱼 <span>WHALE / LOCAL ROLEPLAY</span></b>
+                <p>纯本地 BYOK 的 AI 角色扮演 App。角色卡、会话、世界书与模型 Key 只存在你的设备上。</p>
+                <p class="shore-foot-legal">AGPL-3.0 · 无账号 · 无统计 · 无云端</p>
+              </div>
+            </div>
+            <nav class="shore-foot-cols" aria-label="页脚">
+              <div>
+                <h4>开始</h4>
+                <a href="#/chat">立即体验</a>
+                <a href="#shore-download" data-scroll="shore-download">下载安装包</a>
+                <a href="#shore-compare" data-scroll="shore-compare">能力对照</a>
+              </div>
+              <div>
+                <h4>获取</h4>
+                <a href="https://github.com/CityNanFlower/whale" target="_blank" rel="noopener">GitHub 仓库</a>
+                <a href="https://ncnsnhd97qtl.feishu.cn/share/base/shrcnSLW2NhCHINp7tsP88tYUWb" target="_blank" rel="noopener">问题反馈</a>
+              </div>
+              <div>
+                <h4>说明</h4>
+                <span>内测版 · 覆盖安装不丢数据</span>
+                <span>数据只存本机</span>
+                <span>开源 · AGPL-3.0</span>
+              </div>
+            </nav>
           </div>
-          <nav>
-            <a href="#/chat">立即体验</a>
-            <a href="https://github.com/CityNanFlower/whale" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://ncnsnhd97qtl.feishu.cn/share/base/shrcnSLW2NhCHINp7tsP88tYUWb" target="_blank" rel="noopener">反馈（飞书）</a>
-          </nav>
+          <div class="shore-foot-base">
+            <span>© 2026 鲸鱼</span>
+            <span>角色扮演内容由模型生成，请遵守所使用服务商的条款与当地法律法规。</span>
+            <span>WHALE / LOCAL ROLEPLAY</span>
+          </div>
         </footer>
       </div>
     </section>
