@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./icon.png">
 <title>鲸鱼 · 本地 AI 角色扮演</title>
-  <script type="module" crossorigin src="./assets/index-By5CXkNZ.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CzJuRAmE.css">
+  <script type="module" crossorigin src="./assets/index-IDAXvFiG.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-ZPW_RtYl.css">
 </head>
 <body>
 
@@ -178,8 +178,8 @@
           <label>主题
             <select id="themeSel">
               <option value="auto">跟随系统</option>
-              <option value="light">浅色</option>
-              <option value="dark">深色</option>
+              <option value="light">浅滩（浅色）</option>
+              <option value="dark">深海（深色）</option>
             </select>
           </label>
           <p class="note">深色只改配色，不改变布局。</p>
@@ -197,98 +197,246 @@
       </footer>
     </section>
 
-    <!-- 介绍 / 推广 / 下载（首屏） -->
+    <!-- 介绍 / 推广 / 下载（首屏：规格书 A · 浅滩 / 深海） -->
     <section class="view" id="view-about">
-      <div class="about">
-        <section class="landing">
-          <div class="landing-copy">
-            <p class="eyebrow">本地优先 · BYOK · 开源</p>
-            <h1><span>把角色带在身边，</span><br><span>把数据留在自己手里。</span></h1>
-            <p class="lead">鲸鱼是一款纯本地的 AI 角色扮演 App。自带模型 Key，导入角色卡就能聊；聊天记录、世界书和 Key 都只留在你的设备上。</p>
-            <div class="row landing-cta">
-              <a class="btn primary big" href="#/chat"><span class="ico" data-icon="chat"></span>立即体验</a>
-              <a class="btn ghost os-android" href="#download"><span class="ico" data-icon="android"></span>下载 Android 版</a>
-              <a class="btn ghost os-windows" href="#download"><span class="ico" data-icon="windows"></span>下载 Windows 版</a>
+      <div class="shore">
+        <svg class="shore-symbols" width="0" height="0" aria-hidden="true" focusable="false">
+          <symbol id="whale-mark" viewBox="4 12 16 9">
+            <path d="M5.11 16.97 C5.11 15.03 7.11 13.66 9.56 13.66 C11.89 13.66 13.67 14.46 14.56 15.6 C15.11 14.57 16.11 13.77 17.44 13.54 C17.11 14.69 17.11 15.6 17.56 16.29 C18.44 16.17 19.11 16.51 19.44 17.2 C18.11 18.23 16.44 18.34 15.11 17.77 C14.11 18.91 12.11 19.6 9.78 19.6 C7.22 19.6 5.11 18.8 5.11 16.97 Z" fill="currentColor"/>
+          </symbol>
+        </svg>
+
+        <header class="shore-top">
+          <a class="shore-brand" href="#/about">
+            <span class="shore-mark"><svg viewBox="4 12 16 9" aria-hidden="true"><use href="#whale-mark"/></svg></span>
+            <span class="shore-brandtxt">鲸鱼<small>WHALE / LOCAL ROLEPLAY</small></span>
+          </a>
+          <nav class="shore-nav" aria-label="介绍页">
+            <a href="#shore-demo">体验</a>
+            <a href="#shore-cast">角色</a>
+            <a href="#shore-world">世界书</a>
+            <a href="#shore-local">本地</a>
+            <a href="#shore-compare">对照</a>
+            <a href="#shore-download">下载</a>
+          </nav>
+          <div class="shore-actions">
+            <span class="shore-chip">推广体验版</span>
+            <div class="shore-theme" role="group" aria-label="主题">
+              <button type="button" data-ltheme="light">浅滩</button>
+              <button type="button" data-ltheme="dark">深海</button>
+            </div>
+            <a class="btn primary big" href="#/chat">立即体验</a>
+          </div>
+        </header>
+
+        <section class="shore-hero" id="shore-top">
+          <span class="shore-watermark" aria-hidden="true">鲸鱼</span>
+          <div class="shore-hero-copy">
+            <p class="shore-kicker">本地优先 · 自带模型 Key · 开源</p>
+            <h1>把角色留在<br><span>你自己的<br>设备上。</span></h1>
+            <p class="shore-lead">鲸鱼是一只纯本地的 AI 角色扮演工具。导入角色卡就能聊，世界书按关键词触发；聊天记录、角色设定与 API Key 都不离开这台设备。</p>
+            <div class="row landing-cta shore-ctas">
+              <a class="btn primary big" href="#/chat">立即体验 <span class="arw">→</span></a>
+              <a class="btn ghost os-android" href="#shore-download"><span class="ico" data-icon="android"></span>下载 Android 版</a>
+              <a class="btn ghost os-windows" href="#shore-download"><span class="ico" data-icon="windows"></span>下载 Windows 版</a>
               <span class="btn ghost os-ios">iOS 暂未开放</span>
             </div>
-            <ul class="landing-points">
-              <li><span class="ico" data-icon="book"></span><span><b>多本世界书</b> 关键词命中才注入，不塞满上下文</span></li>
-              <li><span class="ico" data-icon="cards"></span><span><b>角色卡</b> 导入即聊，每张卡独立会话</span></li>
-              <li><span class="ico" data-icon="sparkle"></span><span><b>自带模型</b> 浏览器直连服务商，不经过中转</span></li>
-            </ul>
+            <p class="shore-micro">22 MB · 无需注册 · 覆盖安装不丢数据</p>
           </div>
-          <div class="landing-visual">
-            <div class="product-window">
-              <div class="pw-bar"><span></span><span></span><span></span><b>鲸鱼 · 工作台</b></div>
-              <div class="pw-chat">
-                <div class="pw-head">
-                  <img src="./cards/card-ailin-mofa.png" alt="">
-                  <div><b>艾琳</b><small>冒险者公会的柜台小姐</small></div>
-                  <span class="tag">世界书 · 阿瓦隆大陆</span>
+
+          <figure class="shore-plate">
+            <span class="shore-plate-marks" aria-hidden="true"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></span>
+            <div class="shore-plate-glow" aria-hidden="true"></div>
+            <svg class="shore-sonar" viewBox="0 0 400 400" aria-hidden="true">
+              <g fill="none" stroke="currentColor">
+                <circle cx="200" cy="200" r="54" stroke-dasharray="2 5" opacity=".7"/>
+                <circle cx="200" cy="200" r="96" stroke-dasharray="2 7" opacity=".48"/>
+                <circle cx="200" cy="200" r="138" stroke-dasharray="2 9" opacity=".3"/>
+                <circle cx="200" cy="200" r="180" stroke-dasharray="2 11" opacity=".16"/>
+                <path d="M200 14v372M14 200h372" opacity=".22"/>
+                <path d="M200 42v10M200 348v10M42 200h10M348 200h10" opacity=".55"/>
+              </g>
+              <g fill="currentColor" font-family="ui-monospace,monospace" font-size="8" opacity=".7">
+                <text x="238" y="58">DIVE 01</text>
+                <text x="286" y="203">SONAR</text>
+                <text x="58" y="342">LOCAL</text>
+              </g>
+            </svg>
+            <div class="shore-whale"><svg viewBox="4 12 16 9" aria-hidden="true"><use href="#whale-mark"/></svg></div>
+            <div class="shore-stamp"><svg viewBox="4 12 16 9" aria-hidden="true"><use href="#whale-mark"/></svg><small>WHALE / 01</small></div>
+            <div class="shore-depth" aria-hidden="true"><span>0 m</span><span>200</span><span>1000</span><span>4000</span></div>
+            <figcaption><span>SPECIMEN 01 / 鲸鱼</span><span>DEPTH: LOCAL</span><span>NO CLOUD · BYOK</span></figcaption>
+          </figure>
+        </section>
+
+        <div class="shore-ledger">
+          <aside class="shore-index">
+            <p class="shore-index-k">INDEX</p>
+            <nav>
+              <a href="#shore-demo">体验</a>
+              <a href="#shore-cast">角色</a>
+              <a href="#shore-world">世界书</a>
+              <a href="#shore-local">本地</a>
+              <a href="#shore-compare">对照</a>
+              <a href="#shore-download">下载</a>
+            </nav>
+            <div class="shore-console">
+              <p class="shore-console-k">GET THE APP</p>
+              <p class="shore-console-note" data-os-note></p>
+              <a class="shore-console-link os-windows" href="#shore-download">Windows 安装器</a>
+              <a class="shore-console-link os-android" href="#shore-download">Android 安装包</a>
+              <a class="shore-console-link" href="#shore-download">全部平台</a>
+            </div>
+          </aside>
+
+          <div class="shore-sheet">
+            <section class="shore-spec" id="shore-demo">
+              <div class="shore-spec-head"><p>体验 / DEMO</p><h2>先聊一句，<br><span class="accent">再决定要不要带走它。</span></h2></div>
+              <p class="shore-body">预录演示，不需要 Key。点一句台词，看她怎么接。</p>
+              <div class="chatpanel shore-demo" id="demo">
+                <div class="chathead">
+                  <div class="headmeta"><b>艾琳</b><span>示例角色卡 · 冒险者公会</span></div>
+                  <span class="tag">演示 · 预录</span>
                 </div>
-                <div class="pw-msgs">
-                  <div class="pw-msg me">那张找人的单子，我接。</div>
-                  <div class="pw-msg"><img src="./cards/card-ailin-mofa.png" alt=""><div>（她把笔搁进墨水瓶，认真看了你一眼。）<br>「名字写这里。想清楚了再写。」</div></div>
+                <div class="msgs demoMsgs" id="demoBox"></div>
+                <div class="choices" id="demoChoices"></div>
+                <div class="chattools"><button class="btn ghost" id="demoReplay" type="button"><span class="ico" data-icon="refresh"></span><span id="demoReplayLabel">重新播放</span></button><span class="note" id="demoHint"></span></div>
+              </div>
+              <p class="shore-note">想真聊？去 <a href="#/chat">工作台</a>，先在设置里填一个你自己的模型 Key；请求由你的浏览器直连服务商。</p>
+            </section>
+
+            <section class="shore-spec" id="shore-cast">
+              <div class="shore-spec-head"><p>角色 / CAST</p><h2>两个人，<br><span class="accent">都记得你说过的话。</span></h2></div>
+              <p class="shore-body">H5 的内置角色一律是陪伴向，不做多形态卡。导入酒馆 PNG / JSON 可以加自己的角色；每张卡独立会话，不串线。</p>
+              <div class="shore-cast">
+                <article class="shore-person">
+                  <div class="shore-person-head"><h3>艾琳</h3><span>公会柜台 / 25 岁</span></div>
+                  <blockquote>「名字我写。等级——你腰上那块是铜牌，能接的单子有限，我按规矩给你画一条线。」</blockquote>
+                  <p>温柔但极有原则；从不让新人接超过等级的委托；回不来的人那页，她会画一朵小花。</p>
+                  <div class="shore-tags"><span>内置示例</span><span>陪伴向</span><span>慢热</span></div>
+                </article>
+                <article class="shore-person">
+                  <div class="shore-person-head"><h3>格里芬</h3><span>落难骑士 / 33 岁</span></div>
+                  <blockquote>「规矩不是为他立的。是为还活着的人立的。」</blockquote>
+                  <p>固执、沉默、把规矩看得比命重；失了主君，却还在按旧规矩做事。</p>
+                  <div class="shore-tags"><span>内置示例</span><span>陪伴向</span><span>沉重</span></div>
+                </article>
+              </div>
+            </section>
+
+            <section class="shore-spec" id="shore-world">
+              <div class="shore-spec-head"><p>世界书 / WORLDBOOK</p><h2>不是把设定全塞进去。<br><span class="accent">是说到那里，才想起来。</span></h2></div>
+              <p class="shore-body">关键词命中才注入，是鲸鱼和「一次性长提示词」最大的区别。世界书安静地待在本机，只有对话真的碰触到它时，相关的那一条才会进入上下文。</p>
+              <div class="shore-flow">
+                <div class="shore-step"><b>关键词</b><span>触发词 / 常驻</span><p>「公会」「登记」</p></div>
+                <div class="shore-arrow">→</div>
+                <div class="shore-step"><b>命中</b><span>最近 N 条消息 + 卡设定</span><p>1 条命中</p></div>
+                <div class="shore-arrow">→</div>
+                <div class="shore-step"><b>注入</b><span>只拼进这一轮 system</span><p>不污染上下文</p></div>
+              </div>
+              <div class="shore-entry">
+                <div class="shore-entry-k">命中关键词 <b>公会</b> <b>柜台</b> <b>登记</b></div>
+                <p>分布在各城的分支机构，替人接委托、替公会记账、替死者销名。大厅中央永远挂着一块告示板；柜台后的人记性都极好。</p>
+                <span class="shore-entry-tag">本轮已注入 · 阿瓦隆大陆</span>
+              </div>
+            </section>
+
+            <section class="shore-spec shore-local" id="shore-local">
+              <div class="shore-spec-head"><p>本地 / LOCAL-FIRST</p><h2>你的设备，<br><span class="accent">就是服务器。</span></h2></div>
+              <p class="shore-body">没有账号，没有中转，没有云端会话。请求从你的浏览器直接发给你选定的模型服务商；本站只提供页面代码，不接触你的 Key 与聊天内容。</p>
+              <div class="shore-local-grid">
+                <div class="shore-node accent"><b>你的设备</b><span>角色卡 / 世界书 / 聊天 / Key</span></div>
+                <div class="shore-node off"><b>中转服务器</b><span>不存在</span></div>
+                <div class="shore-node"><b>模型服务商</b><span>你选的 API / 你的 Key</span></div>
+              </div>
+              <dl class="shore-facts">
+                <div><dt>账号</dt><dd>不需要</dd></div>
+                <div><dt>数据</dt><dd>只存本机</dd></div>
+                <div><dt>备份</dt><dd>导出 JSON</dd></div>
+                <div><dt>代码</dt><dd>AGPL-3.0</dd></div>
+              </dl>
+            </section>
+
+            <section class="shore-spec" id="shore-compare">
+              <div class="shore-spec-head"><p>对照 / COMPARE</p><h2>正版有什么，<br><span class="accent">本页做到哪。</span></h2></div>
+              <p class="shore-body">本页是推广体验版，做的是正版的子集——下面把两边对齐列出来，免得你猜。</p>
+              <div class="shore-tablewrap"><table class="cap" id="capTable"></table></div>
+              <p class="shore-note">没有账号、没有中转；聊天记录、角色卡、世界书与 Key 都只存在这台设备上。</p>
+            </section>
+
+            <section class="shore-spec" id="shore-download">
+              <div class="shore-spec-head"><p>获取正版 / DOWNLOAD</p><h2>选你的设备。<br><span class="accent">剩下的它自己会做。</span></h2></div>
+              <p class="shore-body">鲸鱼是开源免费的本地 AI 角色扮演 App。安装包在 GitHub 上，当前为 <b>内测版（alpha）</b>；覆盖安装不丢数据。</p>
+              <div class="wxtip" id="wxTip" hidden>微信里打不开 GitHub 链接：点右上角 <b>⋯</b> → <b>在浏览器打开</b>；或先点下面的按钮复制链接，再到浏览器 / 电脑上打开。</div>
+              <div class="dl-tabs" role="tablist" aria-label="选择平台">
+                <button class="dl-tab" type="button" role="tab" data-platform="android"><span class="ico" data-icon="android"></span>Android</button>
+                <button class="dl-tab" type="button" role="tab" data-platform="windows"><span class="ico" data-icon="windows"></span>Windows</button>
+                <button class="dl-tab" type="button" role="tab" data-platform="ios">iOS</button>
+              </div>
+              <p class="dl-detect" id="dlDetect"></p>
+              <div id="dlPanels">
+                <div class="dlpanel shore-dlpanel" data-panel="android">
+                  <div class="shore-dl-main">
+                    <h3>Android 安装包</h3>
+                    <p class="shore-ver">v0.3.1-alpha.2 · 内测版 · 22 MB</p>
+                    <dl class="shore-dl-facts">
+                      <div><dt>文件</dt><dd>whale.apk</dd></div>
+                      <div><dt>要求</dt><dd>Android 8.0 及以上</dd></div>
+                      <div><dt>校验</dt><dd>0fb0621c…0e6f45</dd></div>
+                    </dl>
+                  </div>
+                  <div class="shore-dl-side">
+                    <button class="btn primary" id="dlAndroid" type="button">复制安卓安装包链接</button>
+                    <p class="urls" id="dlUrlAndroid"></p>
+                  </div>
                 </div>
-                <div class="pw-composer">说点什么…… <span class="ico" data-icon="send"></span></div>
+                <div class="dlpanel shore-dlpanel" data-panel="windows" hidden>
+                  <div class="shore-dl-main">
+                    <h3>Windows 桌面版</h3>
+                    <p class="shore-ver">v1.8.1 · 内测版 · 85 MB</p>
+                    <dl class="shore-dl-facts">
+                      <div><dt>安装器</dt><dd>whale-setup.exe</dd></div>
+                      <div><dt>便携包</dt><dd>whale-win.zip（免安装）</dd></div>
+                      <div><dt>要求</dt><dd>Windows 10 / 11 · x64</dd></div>
+                    </dl>
+                  </div>
+                  <div class="shore-dl-side">
+                    <button class="btn primary" id="dlWin" type="button">复制 Windows 安装器链接</button>
+                    <button class="btn ghost" id="dlZip" type="button">复制 Windows 便携包链接</button>
+                    <p class="urls" id="dlUrlWin"></p>
+                  </div>
+                </div>
+                <div class="dlpanel shore-dlpanel" data-panel="ios" hidden>
+                  <div class="shore-dl-main">
+                    <h3>iOS 版暂未开放</h3>
+                    <p class="shore-ver">目前提供 Android 与 Windows 版。</p>
+                  </div>
+                  <div class="shore-dl-side">
+                    <p class="shore-note">iOS 在路线图上，没有时间表；可以先在另外两个平台使用，数据格式一致。</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="sec" id="demo">
-          <h2>看一段演示</h2>
-          <p class="sub">一问一答，你来点、它来答——回复是预录的（不是实时生成），零设置可看。</p>
-          <div class="chatpanel">
-            <div class="chathead">
-              <img class="avatar" id="demoAvatar" src="./cards/card-ailin-mofa.png" alt="" loading="lazy">
-              <div class="headmeta"><b>艾琳</b><span>示例角色卡 · 冒险者公会</span></div>
-              <span class="tag">演示 · 预录</span>
-            </div>
-            <div class="msgs demoMsgs" id="demoBox"></div>
-            <div class="choices" id="demoChoices"></div>
-            <div class="chattools"><button class="btn ghost" id="demoReplay" type="button"><span class="ico" data-icon="refresh"></span><span id="demoReplayLabel">重新播放</span></button><span class="note" id="demoHint"></span></div>
-          </div>
-          <p class="note">想真聊？去<a href="#/chat">工作台</a>，先在设置里填一个你自己的模型 Key；请求由你的浏览器直连服务商。</p>
-        </section>
-
-        <section class="sec" id="cap">
-          <h2>正版有什么能力</h2>
-          <p class="sub">本页是推广体验版，做的是正版的子集——下面把两边对齐列出来，免得你猜。</p>
-          <table class="cap" id="capTable"></table>
-        </section>
-
-        <section class="sec" id="download">
-          <h2>获取正版 <span class="badge">内测版</span></h2>
-          <p>鲸鱼是开源免费的本地 AI 角色扮演 App。安装包在 GitHub 上，当前为 <b>内测版（alpha）</b>；覆盖安装不丢数据。</p>
-          <div class="wxtip" id="wxTip" hidden>微信里打不开 GitHub 链接：点右上角 <b>⋯</b> → <b>在浏览器打开</b>；或先点下面的按钮复制链接，再到浏览器 / 电脑上打开。</div>
-          <div class="dl-tabs" role="tablist" aria-label="选择平台">
-            <button class="dl-tab" type="button" role="tab" data-platform="android"><span class="ico" data-icon="android"></span>Android</button>
-            <button class="dl-tab" type="button" role="tab" data-platform="windows"><span class="ico" data-icon="windows"></span>Windows</button>
-            <button class="dl-tab" type="button" role="tab" data-platform="ios">iOS</button>
-          </div>
-          <p class="dl-detect" id="dlDetect"></p>
-          <div id="dlPanels">
-            <div class="dlpanel" data-panel="android">
-              <div class="row">
-                <button class="btn primary" id="dlAndroid" type="button">复制安卓安装包链接</button>
+              <div class="shore-dl-foot">
+                <p class="star">顺手点个 Star，就是最好的支持。</p>
+                <p class="note">暂无 iOS 版。<a href="https://github.com/CityNanFlower/whale/releases" target="_blank" rel="noopener">查看全部版本（GitHub Releases）</a></p>
               </div>
-              <p class="urls" id="dlUrlAndroid"></p>
-            </div>
-            <div class="dlpanel" data-panel="windows" hidden>
-              <div class="row">
-                <button class="btn primary" id="dlWin" type="button">复制 Windows 安装器链接</button>
-                <button class="btn ghost" id="dlZip" type="button">复制 Windows 便携包链接</button>
-              </div>
-              <p class="urls" id="dlUrlWin"></p>
-            </div>
-            <div class="dlpanel" data-panel="ios" hidden>
-              <p class="note">暂无 iOS 版。可以先在 Android 或 Windows 上使用；角色卡与会话数据格式一致。</p>
-            </div>
+            </section>
           </div>
-          <p class="star">顺手点个 Star，就是最好的支持。</p>
-          <p class="note">暂无 iOS 版。<a href="https://github.com/CityNanFlower/whale/releases" target="_blank" rel="noopener">查看全部版本（GitHub Releases）</a></p>
-        </section>
+        </div>
+
+        <footer class="shore-foot">
+          <div class="shore-foot-brand">
+            <span class="shore-mark"><svg viewBox="4 12 16 9" aria-hidden="true"><use href="#whale-mark"/></svg></span>
+            <b>鲸鱼</b>
+            <span>纯本地 BYOK 的 AI 角色扮演 App · AGPL-3.0</span>
+          </div>
+          <nav>
+            <a href="#/chat">立即体验</a>
+            <a href="https://github.com/CityNanFlower/whale">GitHub</a>
+            <a href="https://github.com/CityNanFlower/whale/issues">反馈</a>
+          </nav>
+          <span class="shore-ver" id="shoreVer">h5-v0.2.0-dev</span>
+        </footer>
       </div>
     </section>
   </main>
