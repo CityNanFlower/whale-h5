@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./icon.png">
 <title>鲸鱼 · 本地 AI 角色扮演</title>
-  <script type="module" crossorigin src="./assets/index-BF2dsvjD.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BjKzLAWm.css">
+  <script type="module" crossorigin src="./assets/index-By5CXkNZ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CzJuRAmE.css">
 </head>
 <body>
 
@@ -206,8 +206,10 @@
             <h1><span>把角色带在身边，</span><br><span>把数据留在自己手里。</span></h1>
             <p class="lead">鲸鱼是一款纯本地的 AI 角色扮演 App。自带模型 Key，导入角色卡就能聊；聊天记录、世界书和 Key 都只留在你的设备上。</p>
             <div class="row landing-cta">
-              <a class="btn primary big" href="#/chat"><span class="ico" data-icon="chat"></span>进入工作台</a>
-              <a class="btn ghost" href="#download"><span class="ico" data-icon="download"></span>下载 App</a>
+              <a class="btn primary big" href="#/chat"><span class="ico" data-icon="chat"></span>立即体验</a>
+              <a class="btn ghost os-android" href="#download"><span class="ico" data-icon="android"></span>下载 Android 版</a>
+              <a class="btn ghost os-windows" href="#download"><span class="ico" data-icon="windows"></span>下载 Windows 版</a>
+              <span class="btn ghost os-ios">iOS 暂未开放</span>
             </div>
             <ul class="landing-points">
               <li><span class="ico" data-icon="book"></span><span><b>多本世界书</b> 关键词命中才注入，不塞满上下文</span></li>
@@ -260,12 +262,30 @@
           <h2>获取正版 <span class="badge">内测版</span></h2>
           <p>鲸鱼是开源免费的本地 AI 角色扮演 App。安装包在 GitHub 上，当前为 <b>内测版（alpha）</b>；覆盖安装不丢数据。</p>
           <div class="wxtip" id="wxTip" hidden>微信里打不开 GitHub 链接：点右上角 <b>⋯</b> → <b>在浏览器打开</b>；或先点下面的按钮复制链接，再到浏览器 / 电脑上打开。</div>
-          <div class="row">
-            <button class="btn primary" id="dlAndroid" type="button">复制安卓安装包链接</button>
-            <button class="btn ghost" id="dlWin" type="button">复制 Windows 安装器链接</button>
-            <button class="btn ghost" id="dlZip" type="button">复制 Windows 便携包链接</button>
+          <div class="dl-tabs" role="tablist" aria-label="选择平台">
+            <button class="dl-tab" type="button" role="tab" data-platform="android"><span class="ico" data-icon="android"></span>Android</button>
+            <button class="dl-tab" type="button" role="tab" data-platform="windows"><span class="ico" data-icon="windows"></span>Windows</button>
+            <button class="dl-tab" type="button" role="tab" data-platform="ios">iOS</button>
           </div>
-          <p class="urls" id="dlUrls"></p>
+          <p class="dl-detect" id="dlDetect"></p>
+          <div id="dlPanels">
+            <div class="dlpanel" data-panel="android">
+              <div class="row">
+                <button class="btn primary" id="dlAndroid" type="button">复制安卓安装包链接</button>
+              </div>
+              <p class="urls" id="dlUrlAndroid"></p>
+            </div>
+            <div class="dlpanel" data-panel="windows" hidden>
+              <div class="row">
+                <button class="btn primary" id="dlWin" type="button">复制 Windows 安装器链接</button>
+                <button class="btn ghost" id="dlZip" type="button">复制 Windows 便携包链接</button>
+              </div>
+              <p class="urls" id="dlUrlWin"></p>
+            </div>
+            <div class="dlpanel" data-panel="ios" hidden>
+              <p class="note">暂无 iOS 版。可以先在 Android 或 Windows 上使用；角色卡与会话数据格式一致。</p>
+            </div>
+          </div>
           <p class="star">顺手点个 Star，就是最好的支持。</p>
           <p class="note">暂无 iOS 版。<a href="https://github.com/CityNanFlower/whale/releases" target="_blank" rel="noopener">查看全部版本（GitHub Releases）</a></p>
         </section>
