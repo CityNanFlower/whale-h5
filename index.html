@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./icon.png">
 <title>鲸鱼 · 本地 AI 角色扮演</title>
-  <script type="module" crossorigin src="./assets/index-jKUMw2jE.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Bq6NrQ6E.css">
+  <script type="module" crossorigin src="./assets/index-CfzKRy96.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DbP1sjzR.css">
 </head>
 <body>
 
@@ -208,16 +208,16 @@
 
         <header class="shore-top">
           <a class="shore-brand" href="#/about">
-            <span class="shore-mark"><svg viewBox="0 0 16 9" aria-hidden="true"><use href="#whale-mark"/></svg></span>
+            <img class="shore-logo" src="./icon.png" alt="">
             <span class="shore-brandtxt">鲸鱼<small>WHALE / LOCAL ROLEPLAY</small></span>
           </a>
           <nav class="shore-nav" aria-label="介绍页">
-            <a href="#shore-demo">体验</a>
-            <a href="#shore-cast">角色</a>
-            <a href="#shore-world">世界书</a>
-            <a href="#shore-local">本地</a>
-            <a href="#shore-compare">对照</a>
-            <a href="#shore-download">下载</a>
+            <button type="button" data-scroll="shore-demo">体验</button>
+            <button type="button" data-scroll="shore-cast">角色</button>
+            <button type="button" data-scroll="shore-world">世界书</button>
+            <button type="button" data-scroll="shore-local">本地</button>
+            <button type="button" data-scroll="shore-compare">对照</button>
+            <button type="button" data-scroll="shore-download">下载</button>
           </nav>
           <div class="shore-actions">
             <span class="shore-chip">推广体验版</span>
@@ -226,11 +226,23 @@
               <button type="button" data-ltheme="dark">深海</button>
             </div>
             <a class="btn primary big" href="#/chat">立即体验</a>
+            <button class="shore-menu-btn" id="shoreMenuBtn" type="button" aria-label="页面目录" aria-expanded="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
           </div>
+          <nav class="shore-menu" id="shoreMenu" hidden aria-label="页面目录">
+            <button type="button" data-scroll="shore-demo">体验</button>
+            <button type="button" data-scroll="shore-cast">角色</button>
+            <button type="button" data-scroll="shore-world">世界书</button>
+            <button type="button" data-scroll="shore-local">本地</button>
+            <button type="button" data-scroll="shore-compare">对照</button>
+            <button type="button" data-scroll="shore-download">下载</button>
+            <a href="#/chat">立即体验</a>
+            <a href="https://github.com/CityNanFlower/whale" target="_blank" rel="noopener">GitHub</a>
+          </nav>
         </header>
 
         <section class="shore-hero" id="shore-top">
-          <div class="shore-hero-art" aria-hidden="true"></div>
           <span class="shore-watermark" aria-hidden="true">鲸鱼</span>
           <span class="shore-lens" id="shoreLens" aria-hidden="true"><i></i></span>
           <div class="shore-hero-copy">
@@ -239,12 +251,14 @@
             <p class="shore-lead">本地 AI 角色扮演。导入角色卡就能聊；聊天记录、世界书和 Key 都只存在本机。</p>
             <div class="row landing-cta shore-ctas">
               <a class="btn primary big" href="#/chat">立即体验 <span class="arw">→</span></a>
-              <a class="btn ghost os-android" href="#shore-download"><span class="ico" data-icon="android"></span>下载 Android 版</a>
-              <a class="btn ghost os-windows" href="#shore-download"><span class="ico" data-icon="windows"></span>下载 Windows 版</a>
+              <a class="btn ghost os-android" href="#shore-download" data-scroll="shore-download"><span class="ico" data-icon="android"></span>下载 Android 版</a>
+              <a class="btn ghost os-windows" href="#shore-download" data-scroll="shore-download"><span class="ico" data-icon="windows"></span>下载 Windows 版</a>
               <span class="btn ghost os-ios">iOS 暂未开放</span>
             </div>
-            <p class="shore-micro">21.2 MB · 无需注册 · 覆盖安装不丢数据</p>
+            <p class="shore-micro">无需注册 · 覆盖安装不丢数据</p>
           </div>
+
+          <div class="shore-hero-art" aria-hidden="true"><span class="shore-art-label">WHALE / LOCAL</span></div>
 
           <figure class="shore-plate">
             <span class="shore-plate-marks" aria-hidden="true"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></span>
@@ -265,7 +279,11 @@
               </g>
             </svg>
             <div class="shore-stamp"><svg viewBox="0 0 16 9" aria-hidden="true"><use href="#whale-mark"/></svg><small>WHALE / 01</small></div>
+            <div class="shore-live" aria-hidden="true"><i></i>LIVE / LOCAL</div>
+            <div class="shore-reticle" aria-hidden="true"><i></i></div>
             <div class="shore-depth" aria-hidden="true"><span>0 m</span><span>200</span><span>1000</span><span>4000</span></div>
+            <div class="shore-scalebar" aria-hidden="true"><span>0</span><i></i><span>50 m</span></div>
+            <div class="shore-coord" aria-hidden="true">31°14′N · 121°29′E</div>
             <figcaption><span>SPECIMEN 01 / 鲸鱼</span><span>DEPTH: LOCAL</span><span>NO CLOUD · BYOK</span></figcaption>
           </figure>
         </section>
@@ -274,19 +292,19 @@
           <aside class="shore-index">
             <p class="shore-index-k">INDEX</p>
             <nav>
-              <a href="#shore-demo">体验</a>
-              <a href="#shore-cast">角色</a>
-              <a href="#shore-world">世界书</a>
-              <a href="#shore-local">本地</a>
-              <a href="#shore-compare">对照</a>
-              <a href="#shore-download">下载</a>
+              <button type="button" data-scroll="shore-demo">体验</button>
+              <button type="button" data-scroll="shore-cast">角色</button>
+              <button type="button" data-scroll="shore-world">世界书</button>
+              <button type="button" data-scroll="shore-local">本地</button>
+              <button type="button" data-scroll="shore-compare">对照</button>
+              <button type="button" data-scroll="shore-download">下载</button>
             </nav>
             <div class="shore-console">
               <p class="shore-console-k">GET THE APP</p>
               <p class="shore-console-note" data-os-note></p>
-              <a class="shore-console-link os-windows" href="#shore-download">Windows 安装器</a>
-              <a class="shore-console-link os-android" href="#shore-download">Android 安装包</a>
-              <a class="shore-console-link" href="#shore-download">全部平台</a>
+              <a class="shore-console-link os-windows" href="#shore-download" data-scroll="shore-download">Windows 安装器</a>
+              <a class="shore-console-link os-android" href="#shore-download" data-scroll="shore-download">Android 安装包</a>
+              <a class="shore-console-link" href="#shore-download" data-scroll="shore-download">全部平台</a>
             </div>
           </aside>
 
@@ -378,7 +396,7 @@
                 <div class="dlpanel shore-dlpanel" data-panel="android">
                   <div class="shore-dl-main">
                     <h3>Android 安装包</h3>
-                    <p class="shore-ver">v0.3.1-alpha.2 · 内测版 · 21.2 MB</p>
+                    <p class="shore-ver">v0.3.1-alpha.2 · 内测版</p>
                     <dl class="shore-dl-facts">
                       <div><dt>文件</dt><dd>whale.apk</dd></div>
                       <div><dt>要求</dt><dd>Android 8.0 及以上</dd></div>
@@ -393,10 +411,10 @@
                 <div class="dlpanel shore-dlpanel" data-panel="windows" hidden>
                   <div class="shore-dl-main">
                     <h3>Windows 桌面版</h3>
-                    <p class="shore-ver">v1.8.1 · 内测版 · 安装器 83.4 MB</p>
+                    <p class="shore-ver">v1.8.1 · 内测版</p>
                     <dl class="shore-dl-facts">
                       <div><dt>安装器</dt><dd>whale-setup.exe</dd></div>
-                      <div><dt>便携包</dt><dd>whale-win.zip（81.3 MB，免安装）</dd></div>
+                      <div><dt>便携包</dt><dd>whale-win.zip（免安装）</dd></div>
                       <div><dt>要求</dt><dd>Windows 10 / 11 · x64</dd></div>
                     </dl>
                   </div>
@@ -426,7 +444,7 @@
 
         <footer class="shore-foot">
           <div class="shore-foot-brand">
-            <span class="shore-mark"><svg viewBox="0 0 16 9" aria-hidden="true"><use href="#whale-mark"/></svg></span>
+            <img class="shore-logo small" src="./icon.png" alt="">
             <b>鲸鱼</b>
             <span>纯本地 BYOK 的 AI 角色扮演 App · AGPL-3.0</span>
           </div>
