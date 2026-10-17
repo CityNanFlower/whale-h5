@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#17181B" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./icon.png">
 <title>鲸鱼 · 本地 AI 角色扮演</title>
-  <script type="module" crossorigin src="./assets/index-CZTGXeo2.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-EPDu0Zwy.css">
+  <script type="module" crossorigin src="./assets/index-DeA93_jt.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-QnEdDOVt.css">
 </head>
 <body>
 
@@ -109,6 +109,7 @@
       </div>
       <div class="chatfoot chatfoot-split">
         <button class="btn mini" id="suggestBtn">灵感回复</button>
+        <button class="btn mini" id="imgBtn">生图</button>
         <button class="btn mini" id="clearBtn">清空对话</button>
         <span class="note" id="chatStat"></span>
       </div>
@@ -128,6 +129,9 @@
           <input id="modelInput" list="modelList" placeholder="model-id">
           <datalist id="modelList"></datalist>
         </label>
+        <label>生图模型（可选，AI 生图用）
+          <input id="imgModelInput" placeholder="如 cogview-3-flash / Kwai-Kolors/Kolors">
+        </label>
         <label>API Key<input id="keyInput" type="password" autocomplete="off" placeholder="sk-…（只保存在本机）"></label>
         <div id="customBox" hidden>
           <label>Base URL<input id="baseInput" placeholder="https://api.example.com/v1"></label>
@@ -137,6 +141,25 @@
           <button class="btn" id="clearCfg">清除 Key</button>
         </div>
         <p class="note">Key 以此设备上的浏览器密钥加密存放（WebCrypto）；安全性弱于 App 端系统级钥匙串，建议只在自己手机上用。豆包、腾讯、MiniMax 不允许网页直连，未列入；找不到你的服务商可选「自定义」。</p>
+      </div>
+    </details>
+
+    <details class="settings" id="wbBox">
+      <summary>世界书（关键词自动触发）<span class="sum" id="wbSummary"></span></summary>
+      <div class="sbody">
+        <p class="note">一条 ＝「触发关键词」＋「设定内容」。对话里（最近几条消息）说到关键词时，这条内容会自动注入提示词，让角色知道这些设定——和 App 的世界书一个思路，这里是最简版。</p>
+        <div id="wbList"></div>
+        <div class="row"><button class="btn" id="wbAdd">＋ 加一条</button></div>
+      </div>
+    </details>
+
+    <details class="settings" id="imgBox">
+      <summary>AI 生图（/images/generations）</summary>
+      <div class="sbody">
+        <p class="note">用你配置的服务商画图：需在上面「模型设置」里填一个<b>生图模型</b>（如智谱 cogview-3-flash、硅基流动 Kwai-Kolors/Kolors）。豆包 / 腾讯 / MiniMax 不允许网页直连。会话页的「生图」按钮也走这个模型。</p>
+        <label>生图描述<textarea id="imgDesc" placeholder="例如：深夜书店，暖黄台灯，窗上雨痕，写实漫画风格。"></textarea></label>
+        <div class="row"><button class="btn primary" id="imgGenBtn">试画一张</button><span class="note" id="imgStat"></span></div>
+        <img id="imgOut" class="genimg" alt="生成结果" hidden>
       </div>
     </details>
 
