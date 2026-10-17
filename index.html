@@ -4,192 +4,297 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="鲸鱼——本地 AI 角色扮演 App 的网页体验：自带模型 Key，数据只存在你的设备上。安卓 + Windows，开源免费。">
-<meta name="theme-color" content="#F5F6F4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#17181B" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F7F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./icon.png">
 <title>鲸鱼 · 本地 AI 角色扮演</title>
-  <script type="module" crossorigin src="./assets/index-DeA93_jt.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-QnEdDOVt.css">
+  <script type="module" crossorigin src="./assets/index-BjrLnSS4.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-VX0l_epY.css">
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap topin">
-    <a class="brand" href="#/"><img src="./icon.png" alt="" width="26" height="26"><span>鲸鱼</span><span class="ver" id="ver"></span></a>
-    <nav class="nav">
-      <a href="#/" data-page="home">首页</a>
-      <a href="#/chat" data-page="chat">体验</a>
-      <a href="#/settings" data-page="settings">设置</a>
+<div class="app">
+  <aside class="rail">
+    <a class="brand" href="#/chat"><img src="./icon.png" alt="" width="26" height="26"><span>鲸鱼</span><span class="ver" id="ver"></span></a>
+    <nav class="railnav">
+      <a href="#/chat" data-route="chat">聊天</a>
+      <a href="#/cards" data-route="cards">角色卡</a>
+      <a href="#/books" data-route="books">世界书</a>
+      <a href="#/settings" data-route="settings">设置</a>
     </nav>
-    <button class="iconbtn" id="themeBtn" title="切换深色 / 浅色">深色</button>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <!-- ═══ 首页：简介 / 演示 / 能力清单 / 下载 ═══ -->
-  <section class="page" id="page-home">
-    <div class="hero">
-      <h1>鲸鱼 · 本地 AI 角色扮演</h1>
-      <p class="lead">一款把模型选择权和数据都交给你的角色扮演 App：自带模型 Key，导入角色卡就能聊。安卓 + Windows，开源免费。</p>
-      <p class="meta">纯本地存储 · 自带 Key（BYOK）· 无服务器 · AGPL-3.0</p>
-      <div class="cta">
-        <a class="btn primary" href="#/chat">进体验区</a>
-        <a class="btn" href="#download">获取正版</a>
-      </div>
+    <div class="railfoot">
+      <button class="btn ghost" id="themeBtn" type="button">深色</button>
+      <a class="raillink" href="#/about" data-route="about">关于 / 下载</a>
+      <span class="railstatus" id="railStatus"></span>
     </div>
+  </aside>
 
-    <section class="sec" id="demo">
-      <h2>看一段演示</h2>
-      <p class="sub">一问一答，你来点、它来答——回复是预录的（不是实时生成），零设置可看。演示里同时展示了灵感回复、世界书触发这些正版能力。</p>
-      <div class="chatpanel" id="demoPanel">
-        <div class="chathead">
-          <img class="avatar" id="demoAvatar" src="./cards/card-shiguang-linwantang.png" alt="" loading="lazy">
-          <div class="headmeta"><b>林晚棠</b><span>示例角色卡 · 深夜书店</span></div>
-          <span class="tag">演示 · 预录</span>
-        </div>
-        <div class="msgs" id="demoBox"></div>
-        <div class="choices" id="demoChoices"></div>
-        <div class="chatfoot"><button class="btn" id="demoReplay">重新播放</button><span class="note" id="demoHint"></span></div>
-      </div>
-      <p class="note">想真聊？去<a href="#/chat">体验区</a>填一个你自己的模型 Key（最便宜档几分钱），请求由你的浏览器直连服务商。</p>
-    </section>
-
-    <section class="sec" id="cap">
-      <h2>正版有什么能力</h2>
-      <p class="sub">本页是推广体验版，做的是正版的子集——下面把两边对齐列出来，免得你猜。</p>
-      <table class="cap" id="capTable"></table>
-    </section>
-
-    <section class="sec" id="download">
-      <h2>获取正版 <span class="badge">内测版</span></h2>
-      <p>鲸鱼是开源免费的本地 AI 角色扮演 App。安装包在 GitHub 上，当前为 <b>内测版（alpha）</b>，功能与界面仍在快速迭代；覆盖安装不丢数据。</p>
-      <div class="wxtip" id="wxTip" hidden>微信里打不开 GitHub 链接：点右上角 <b>⋯</b> → <b>在浏览器打开</b>；或先点下面的按钮复制链接，再到浏览器 / 电脑上打开。</div>
-      <div class="row wraprow">
-        <button class="btn primary" id="dlAndroid">复制安卓安装包链接</button>
-        <button class="btn" id="dlWin">复制 Windows 安装器链接</button>
-        <button class="btn" id="dlZip">复制 Windows 便携包链接</button>
-      </div>
-      <p class="urls" id="dlUrls"></p>
-      <p class="star">顺手点个 Star，就是最好的支持。</p>
-      <p class="note">暂无 iOS 版。<a href="https://github.com/CityNanFlower/whale/releases" target="_blank" rel="noopener">查看全部版本（GitHub Releases）</a></p>
-    </section>
-  </section>
-
-  <!-- ═══ 体验页：角色卡 + 会话 ═══ -->
-  <section class="page" id="page-chat">
-    <h2 class="ptitle">体验区</h2>
-    <p class="sub">纯静态页面：Key 与聊天数据只保存在你的浏览器里。先选一张角色卡，再填模型设置（在<a href="#/settings">设置</a>页）。</p>
-
-    <div class="cardlist" id="cardList"></div>
-
-    <div class="row cardops">
-      <input type="file" id="importFile" accept="image/*,.json,application/json" hidden>
-      <button class="btn" id="pickImport">从相册选卡 / 导入 JSON 文件</button>
-      <button class="btn" id="pasteToggle">粘贴卡 JSON</button>
-      <span class="note" id="cardStat"></span>
-    </div>
-    <div id="pasteBox" hidden>
-      <textarea id="cardJson" placeholder="把角色卡 JSON 粘贴到这里……"></textarea>
-      <div class="row"><button class="btn primary" id="importJson">导入这张卡</button></div>
-    </div>
-    <p class="note">没有卡？长按任意一张卡图 → 保存到相册 → 再用上面的按钮从相册导入它（微信里最顺的导卡路径）。</p>
-
-    <div class="chatpanel">
-      <div class="chathead">
-        <img class="avatar" id="carAvatar" src="" alt="" loading="lazy">
+  <main class="main">
+    <!-- 聊天：默认首屏 -->
+    <section class="view" id="view-chat">
+      <header class="viewhead chathead">
+        <img class="avatar" id="carAvatar" src="./icon.png" alt="">
         <div class="headmeta"><b id="carName">—</b><span id="carMeta"></span></div>
-        <button class="mini" id="regenBtn" title="重新生成上一条回复">重新生成</button>
+        <div class="headacts">
+          <button class="btn ghost" id="regenBtn" type="button">重新生成</button>
+          <button class="btn ghost" id="editCardBtn" type="button">编辑卡</button>
+          <button class="btn ghost" id="clearBtn" type="button">清空</button>
+        </div>
+      </header>
+      <div class="chatbody">
+        <div class="msgs" id="msgs"></div>
+        <div class="suggests" id="suggestBox"></div>
+        <div class="composer">
+          <textarea id="input" rows="1" placeholder="说点什么……"></textarea>
+          <button class="btn primary" id="send" type="button">发送</button>
+        </div>
+        <div class="chattools">
+          <button class="btn ghost" id="suggestBtn" type="button">灵感回复</button>
+          <button class="btn ghost" id="imgBtn" type="button">生图</button>
+          <span class="note" id="chatStat"></span>
+          <span class="note chatHint" id="chatHint"></span>
+        </div>
       </div>
-      <div class="msgs" id="msgs"></div>
-      <div class="suggests" id="suggestBox"></div>
-      <div class="inputbar">
-        <textarea id="input" rows="1" placeholder="说点什么……"></textarea>
-        <button class="btn primary" id="send">发送</button>
+    </section>
+
+    <!-- 角色卡：列表 + 编辑器 -->
+    <section class="view" id="view-cards">
+      <header class="viewhead">
+        <h2>角色卡</h2>
+        <div class="headacts">
+          <button class="btn ghost" id="genToggle" type="button">AI 生成</button>
+          <button class="btn ghost" id="pasteToggle" type="button">粘贴 JSON</button>
+          <button class="btn ghost" id="pickImport" type="button">导入文件</button>
+          <button class="btn primary" id="cardNew" type="button">新建</button>
+        </div>
+      </header>
+      <div class="split" id="cardsSplit">
+        <div class="pane-list">
+          <input type="file" id="importFile" accept="image/*,.json,application/json" hidden>
+          <div id="pasteBox" class="inlinebox" hidden>
+            <textarea id="cardJson" placeholder="把角色卡 JSON 粘贴到这里……"></textarea>
+            <div class="row"><button class="btn primary" id="importJson" type="button">导入这张卡</button></div>
+          </div>
+          <div class="inlinebox" id="genPanel" hidden>
+            <label>一句话描述你想要的角色
+              <textarea id="genDesc" placeholder="例如：深夜书店的店主，话少，习惯给晚归的人留一盏灯。"></textarea>
+            </label>
+            <div class="row"><button class="btn primary" id="genBtn" type="button">生成角色卡</button><span class="note" id="genStat"></span></div>
+            <textarea id="genOut" class="mono" placeholder="生成结果会出现在这里……" readonly></textarea>
+          </div>
+          <p class="note" id="cardStat"></p>
+          <div class="cardgrid" id="cardGrid"></div>
+        </div>
+        <div class="pane-detail" id="cardEditor" hidden>
+          <header class="panehead"><b id="ceTitle">编辑角色卡</b><button class="btn ghost" id="ceClose" type="button">关闭</button></header>
+          <div class="editorbody">
+            <div class="row"><img class="avatar big" id="ceAvatar" src="./icon.png" alt=""><span class="note" id="ceSource"></span></div>
+            <label>名称<input id="ceName" placeholder="角色名"></label>
+            <label>一句话<input id="ceTagline" placeholder="一句话介绍"></label>
+            <label>设定<textarea id="ceDescription" rows="4" placeholder="角色的背景与设定"></textarea></label>
+            <label>性格<textarea id="cePersonality" rows="2" placeholder="性格特点"></textarea></label>
+            <label>当前场景<textarea id="ceScenario" rows="2" placeholder="对话开始的场景"></textarea></label>
+            <label>开场白<textarea id="ceFirst" rows="3" placeholder="角色说的第一段话"></textarea></label>
+            <label>示例对话<textarea id="ceExample" rows="3" placeholder="可留空"></textarea></label>
+            <div class="subhead">挂载世界书</div>
+            <label>世界书<select id="ceBook"><option value="">不挂世界书</option></select></label>
+            <label class="check"><input type="checkbox" id="ceBookEnabled"> 启用这本书</label>
+            <div class="row">
+              <button class="btn primary" id="ceSave" type="button">保存</button>
+              <button class="btn ghost" id="ceCancel" type="button">取消</button>
+              <button class="btn ghost" id="ceReset" type="button" hidden>恢复默认</button>
+              <button class="btn danger" id="ceDelete" type="button" hidden>删除</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="chatfoot chatfoot-split">
-        <button class="btn mini" id="suggestBtn">灵感回复</button>
-        <button class="btn mini" id="imgBtn">生图</button>
-        <button class="btn mini" id="clearBtn">清空对话</button>
-        <span class="note" id="chatStat"></span>
+    </section>
+
+    <!-- 世界书：书库 + 编辑器 -->
+    <section class="view" id="view-books">
+      <header class="viewhead">
+        <h2>世界书</h2>
+        <div class="headacts">
+          <button class="btn ghost" id="importBookBtn" type="button">导入 JSON</button>
+          <button class="btn primary" id="bookNew" type="button">新建</button>
+        </div>
+      </header>
+      <div class="split" id="booksSplit">
+        <div class="pane-list">
+          <input type="file" id="bookFile" accept=".json,application/json" hidden>
+          <p class="note" id="bookStat"></p>
+          <div class="booklist" id="bookList"></div>
+        </div>
+        <div class="pane-detail" id="bookEditor" hidden>
+          <header class="panehead"><b id="beTitle">编辑世界书</b><button class="btn ghost" id="beClose" type="button">关闭</button></header>
+          <div class="editorbody">
+            <label>书名<input id="beName" placeholder="例如：雨夜书店"></label>
+            <label>说明<textarea id="beDesc" rows="2" placeholder="这本书讲什么（只展示，不进提示词）"></textarea></label>
+            <label>扫描深度（最近 N 条消息；0＝只看角色卡设定）<input id="beDepth" type="number" min="0" max="50" step="1"></label>
+            <div class="row">
+              <button class="btn ghost" id="beExport" type="button">复制导出 JSON</button>
+              <button class="btn danger" id="beDelete" type="button">删除这本书</button>
+            </div>
+            <div class="subhead">条目 <span class="note" id="beCount"></span></div>
+            <div id="beEntries"></div>
+            <button class="btn ghost" id="beAdd" type="button">＋ 添加条目</button>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- 设置 -->
+    <section class="view" id="view-settings">
+      <header class="viewhead"><h2>设置</h2></header>
+      <div class="settingsgrid">
+        <section class="panel">
+          <h3>模型与 Key</h3>
+          <label>服务商<select id="provSel"></select></label>
+          <label>模型（可下拉选，也可手填）
+            <input id="modelInput" list="modelList" placeholder="model-id">
+            <datalist id="modelList"></datalist>
+          </label>
+          <label>生图模型（可选）
+            <input id="imgModelInput" placeholder="如 cogview-3-flash / Kwai-Kolors/Kolors">
+          </label>
+          <label>API Key<input id="keyInput" type="password" autocomplete="off" placeholder="sk-…（只保存在本机）"></label>
+          <div id="customBox" hidden><label>Base URL<input id="baseInput" placeholder="https://api.example.com/v1"></label></div>
+          <div class="row">
+            <button class="btn primary" id="saveCfg" type="button">保存</button>
+            <button class="btn ghost" id="clearCfg" type="button">清除 Key</button>
+          </div>
+          <p class="note" id="settingsSummary"></p>
+          <p class="note">Key 以此设备上的浏览器密钥加密存放（WebCrypto）；安全性弱于 App 端系统级钥匙串，建议只在自己手机上用。豆包、腾讯、MiniMax 不允许网页直连。</p>
+        </section>
+
+        <section class="panel">
+          <h3>AI 生图测试</h3>
+          <p class="note">用设置里的生图模型画一张，验证这家服务商允许网页直连。</p>
+          <label>生图描述<textarea id="imgDesc" rows="3" placeholder="例如：深夜书店，暖黄台灯，窗上雨痕，写实漫画风格。"></textarea></label>
+          <div class="row"><button class="btn primary" id="imgGenBtn" type="button">试画一张</button><span class="note" id="imgStat"></span></div>
+          <img id="imgOut" class="genimg" alt="生成结果" hidden>
+        </section>
+
+        <section class="panel">
+          <h3>数据与备份</h3>
+          <p class="note">聊天记录、角色卡、世界书都只存在这台设备的浏览器里。备份 JSON 不含 API Key。</p>
+          <div class="row"><button class="btn primary" id="expBtn" type="button">生成并复制备份</button><button class="btn ghost" id="impBtn" type="button">导入备份</button></div>
+          <textarea id="backupTa" class="mono" rows="6" placeholder="备份 JSON 会出现在这里；要恢复时把 JSON 粘贴到这里再点「导入备份」。"></textarea>
+        </section>
+
+        <section class="panel">
+          <h3>外观</h3>
+          <label>主题
+            <select id="themeSel">
+              <option value="auto">跟随系统</option>
+              <option value="light">浅色</option>
+              <option value="dark">深色</option>
+            </select>
+          </label>
+          <p class="note">深色只改配色，不改变布局。</p>
+        </section>
+
+        <section class="panel">
+          <h3>关于</h3>
+          <p class="note">版本 <span id="settingsVer"></span>。演示、正版能力清单与下载入口在关于页。</p>
+          <p><a class="btn ghost" href="#/about">打开关于 / 下载</a></p>
+        </section>
+      </div>
+      <footer class="foot">
+        <p>本站为纯静态页面，无后端：聊天请求由你的浏览器直连服务商，数据不经过本站服务器。</p>
+        <p>演示内容为虚构；请遵守所使用服务商的条款与当地法律法规，勿用于违法用途。鲸鱼 · AGPL-3.0 · <span id="footVer"></span></p>
+      </footer>
+    </section>
+
+    <!-- 关于 / 推广 / 下载 -->
+    <section class="view" id="view-about">
+      <div class="about">
+        <header class="abouthead">
+          <h1>鲸鱼 · 本地 AI 角色扮演</h1>
+          <p class="lead">一款把模型选择权和数据都交给你的角色扮演 App：自带模型 Key，导入角色卡就能聊。安卓 + Windows，开源免费。</p>
+          <p class="meta">纯本地存储 · 自带 Key（BYOK）· 无服务器 · AGPL-3.0</p>
+          <div class="row"><a class="btn primary" href="#/chat">回到聊天</a><a class="btn ghost" href="#download">获取正版</a></div>
+        </header>
+
+        <section class="sec" id="demo">
+          <h2>看一段演示</h2>
+          <p class="sub">一问一答，你来点、它来答——回复是预录的（不是实时生成），零设置可看。</p>
+          <div class="chatpanel">
+            <div class="chathead">
+              <img class="avatar" id="demoAvatar" src="./cards/card-shiguang-linwantang.png" alt="" loading="lazy">
+              <div class="headmeta"><b>林晚棠</b><span>示例角色卡 · 深夜书店</span></div>
+              <span class="tag">演示 · 预录</span>
+            </div>
+            <div class="msgs demoMsgs" id="demoBox"></div>
+            <div class="choices" id="demoChoices"></div>
+            <div class="chattools"><button class="btn ghost" id="demoReplay" type="button">重新播放</button><span class="note" id="demoHint"></span></div>
+          </div>
+          <p class="note">想真聊？先去<a href="#/settings">设置</a>填一个你自己的模型 Key，请求由你的浏览器直连服务商。</p>
+        </section>
+
+        <section class="sec" id="cap">
+          <h2>正版有什么能力</h2>
+          <p class="sub">本页是推广体验版，做的是正版的子集——下面把两边对齐列出来，免得你猜。</p>
+          <table class="cap" id="capTable"></table>
+        </section>
+
+        <section class="sec" id="download">
+          <h2>获取正版 <span class="badge">内测版</span></h2>
+          <p>鲸鱼是开源免费的本地 AI 角色扮演 App。安装包在 GitHub 上，当前为 <b>内测版（alpha）</b>；覆盖安装不丢数据。</p>
+          <div class="wxtip" id="wxTip" hidden>微信里打不开 GitHub 链接：点右上角 <b>⋯</b> → <b>在浏览器打开</b>；或先点下面的按钮复制链接，再到浏览器 / 电脑上打开。</div>
+          <div class="row">
+            <button class="btn primary" id="dlAndroid" type="button">复制安卓安装包链接</button>
+            <button class="btn ghost" id="dlWin" type="button">复制 Windows 安装器链接</button>
+            <button class="btn ghost" id="dlZip" type="button">复制 Windows 便携包链接</button>
+          </div>
+          <p class="urls" id="dlUrls"></p>
+          <p class="star">顺手点个 Star，就是最好的支持。</p>
+          <p class="note">暂无 iOS 版。<a href="https://github.com/CityNanFlower/whale/releases" target="_blank" rel="noopener">查看全部版本（GitHub Releases）</a></p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <aside class="context" id="contextPanel">
+    <div class="ctxblock">
+      <span class="ctxlabel">当前角色</span>
+      <b id="ctxName">—</b>
+      <span class="ctxsub" id="ctxTag"></span>
+      <button class="linkbtn" id="ctxEditCard" type="button">编辑当前卡</button>
     </div>
-    <p class="note" id="chatHint">Key 未配置时发不出消息：先到<a href="#/settings">设置</a>页填一家服务商与 Key。</p>
-  </section>
+    <div class="ctxblock">
+      <span class="ctxlabel">世界书</span>
+      <select id="ctxBook"><option value="">不挂世界书</option></select>
+      <label class="check"><input type="checkbox" id="ctxBookEnabled"> 启用</label>
+      <a class="linkbtn" href="#/books">管理世界书</a>
+    </div>
+    <div class="ctxblock">
+      <span class="ctxlabel">模型</span>
+      <span id="ctxModel" class="ctxsub">—</span>
+      <a class="linkbtn" href="#/settings">模型与 Key</a>
+    </div>
+    <div class="ctxblock">
+      <span class="ctxlabel">本会话</span>
+      <span id="ctxSession" class="ctxsub">—</span>
+      <span id="ctxHits" class="ctxsub"></span>
+    </div>
+  </aside>
+</div>
 
-  <!-- ═══ 设置页：模型 / 创作 / 数据 ═══ -->
-  <section class="page" id="page-settings">
-    <h2 class="ptitle">设置</h2>
+<nav class="bottomnav">
+  <a href="#/chat" data-route="chat">聊天</a>
+  <a href="#/cards" data-route="cards">角色</a>
+  <a href="#/books" data-route="books">世界书</a>
+  <a href="#/settings" data-route="settings">设置</a>
+</nav>
 
-    <details class="settings" id="settingsBox" open>
-      <summary>模型设置<span class="sum" id="settingsSummary"></span></summary>
-      <div class="sbody">
-        <label>服务商<select id="provSel"></select></label>
-        <label>模型（可下拉选，也可手填）
-          <input id="modelInput" list="modelList" placeholder="model-id">
-          <datalist id="modelList"></datalist>
-        </label>
-        <label>生图模型（可选，AI 生图用）
-          <input id="imgModelInput" placeholder="如 cogview-3-flash / Kwai-Kolors/Kolors">
-        </label>
-        <label>API Key<input id="keyInput" type="password" autocomplete="off" placeholder="sk-…（只保存在本机）"></label>
-        <div id="customBox" hidden>
-          <label>Base URL<input id="baseInput" placeholder="https://api.example.com/v1"></label>
-        </div>
-        <div class="row">
-          <button class="btn primary" id="saveCfg">保存</button>
-          <button class="btn" id="clearCfg">清除 Key</button>
-        </div>
-        <p class="note">Key 以此设备上的浏览器密钥加密存放（WebCrypto）；安全性弱于 App 端系统级钥匙串，建议只在自己手机上用。豆包、腾讯、MiniMax 不允许网页直连，未列入；找不到你的服务商可选「自定义」。</p>
-      </div>
-    </details>
-
-    <details class="settings" id="wbBox">
-      <summary>世界书（关键词自动触发）<span class="sum" id="wbSummary"></span></summary>
-      <div class="sbody">
-        <p class="note">一条 ＝「触发关键词」＋「设定内容」。对话里（最近几条消息）说到关键词时，这条内容会自动注入提示词，让角色知道这些设定——和 App 的世界书一个思路，这里是最简版。</p>
-        <div id="wbList"></div>
-        <div class="row"><button class="btn" id="wbAdd">＋ 加一条</button></div>
-      </div>
-    </details>
-
-    <details class="settings" id="imgBox">
-      <summary>AI 生图（/images/generations）</summary>
-      <div class="sbody">
-        <p class="note">用你配置的服务商画图：需在上面「模型设置」里填一个<b>生图模型</b>（如智谱 cogview-3-flash、硅基流动 Kwai-Kolors/Kolors）。豆包 / 腾讯 / MiniMax 不允许网页直连。会话页的「生图」按钮也走这个模型。</p>
-        <label>生图描述<textarea id="imgDesc" placeholder="例如：深夜书店，暖黄台灯，窗上雨痕，写实漫画风格。"></textarea></label>
-        <div class="row"><button class="btn primary" id="imgGenBtn">试画一张</button><span class="note" id="imgStat"></span></div>
-        <img id="imgOut" class="genimg" alt="生成结果" hidden>
-      </div>
-    </details>
-
-    <details class="settings" id="genBox">
-      <summary>生成角色卡（AI 创作）</summary>
-      <div class="sbody">
-        <p class="note">一句话描述你想要的角色，用你配置的模型生成一张角色卡，可加入上面的卡列表。</p>
-        <label>角色描述<textarea id="genDesc" placeholder="例如：深夜书店的店主，话少，习惯给晚归的人留一盏灯。"></textarea></label>
-        <div class="row"><button class="btn primary" id="genBtn">生成角色卡</button><span class="note" id="genStat"></span></div>
-        <textarea id="genOut" placeholder="生成结果会出现在这里……" readonly></textarea>
-      </div>
-    </details>
-
-    <details class="settings" id="backupBox">
-      <summary>数据与备份</summary>
-      <div class="sbody">
-        <p class="note">聊天记录、角色卡都只存在这台设备的浏览器里（IndexedDB）。换设备或清理浏览器数据会丢——用备份 JSON 带走或恢复。备份不含 API Key。</p>
-        <div class="row"><button class="btn primary" id="expBtn">生成并复制备份</button><button class="btn" id="impBtn">导入备份</button></div>
-        <textarea id="backupTa" placeholder="备份 JSON 会出现在这里；要恢复时把 JSON 粘贴到这里再点「导入备份」。"></textarea>
-      </div>
-    </details>
-  </section>
-
-</main>
-
-<footer class="foot wrap">
-  <p>本站为纯静态页面，无后端：聊天请求由你的浏览器直连服务商，数据不经过本站服务器。</p>
-  <p>演示内容为虚构；请遵守所使用服务商的条款与当地法律法规，勿用于违法用途。</p>
-  <p>鲸鱼 · AGPL-3.0 · <span id="footVer"></span></p>
-</footer>
+<div class="modal" id="modal" hidden>
+  <div class="modalbox" role="dialog" aria-modal="true">
+    <header class="panehead"><b id="modalTitle">编辑</b><button class="btn ghost" id="modalClose" type="button">关闭</button></header>
+    <div class="editorbody" id="modalBody"></div>
+    <div class="modalactions" id="modalActions"></div>
+  </div>
+</div>
 
 <div class="toast" id="toast"></div>
 </body>
