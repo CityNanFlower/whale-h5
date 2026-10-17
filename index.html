@@ -8,37 +8,37 @@
 <meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="./icon.png">
 <title>鲸鱼 · 本地 AI 角色扮演</title>
-  <script type="module" crossorigin src="./assets/index-BjrLnSS4.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-VX0l_epY.css">
+  <script type="module" crossorigin src="./assets/index-DVcDF2lv.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BRGFjR-J.css">
 </head>
 <body>
 
 <div class="app">
   <aside class="rail">
-    <a class="brand" href="#/chat"><img src="./icon.png" alt="" width="26" height="26"><span>鲸鱼</span><span class="ver" id="ver"></span></a>
+    <a class="brand" href="#/about"><img src="./icon.png" alt="" width="28" height="28"><span>鲸鱼</span><span class="ver" id="ver"></span></a>
     <nav class="railnav">
-      <a href="#/chat" data-route="chat">聊天</a>
-      <a href="#/cards" data-route="cards">角色卡</a>
-      <a href="#/books" data-route="books">世界书</a>
-      <a href="#/settings" data-route="settings">设置</a>
+      <a href="#/chat" data-route="chat"><span class="ico" data-icon="chat"></span><span>聊天</span></a>
+      <a href="#/cards" data-route="cards"><span class="ico" data-icon="cards"></span><span>角色卡</span></a>
+      <a href="#/books" data-route="books"><span class="ico" data-icon="book"></span><span>世界书</span></a>
+      <a href="#/settings" data-route="settings"><span class="ico" data-icon="settings"></span><span>设置</span></a>
     </nav>
     <div class="railfoot">
-      <button class="btn ghost" id="themeBtn" type="button">深色</button>
-      <a class="raillink" href="#/about" data-route="about">关于 / 下载</a>
+      <button class="btn ghost" id="themeBtn" type="button"><span class="ico" data-icon="moon"></span><span id="themeLabel">深色</span></button>
+      <a class="raillink" href="#/about" data-route="about"><span class="ico" data-icon="home"></span>介绍 / 下载</a>
       <span class="railstatus" id="railStatus"></span>
     </div>
   </aside>
 
   <main class="main">
-    <!-- 聊天：默认首屏 -->
+    <!-- 聊天：工作台默认页 -->
     <section class="view" id="view-chat">
       <header class="viewhead chathead">
         <img class="avatar" id="carAvatar" src="./icon.png" alt="">
         <div class="headmeta"><b id="carName">—</b><span id="carMeta"></span></div>
+        <span class="tag headbook" id="carBook">未挂世界书</span>
         <div class="headacts">
-          <button class="btn ghost" id="regenBtn" type="button">重新生成</button>
-          <button class="btn ghost" id="editCardBtn" type="button">编辑卡</button>
-          <button class="btn ghost" id="clearBtn" type="button">清空</button>
+          <button class="btn ghost" id="editCardBtn" type="button"><span class="ico" data-icon="edit"></span>编辑卡</button>
+          <button class="btn ghost" id="clearBtn" type="button"><span class="ico" data-icon="trash"></span>清空</button>
         </div>
       </header>
       <div class="chatbody">
@@ -46,11 +46,11 @@
         <div class="suggests" id="suggestBox"></div>
         <div class="composer">
           <textarea id="input" rows="1" placeholder="说点什么……"></textarea>
-          <button class="btn primary" id="send" type="button">发送</button>
+          <button class="btn primary" id="send" type="button"><span class="ico" data-icon="send"></span><span id="sendLabel">发送</span></button>
         </div>
         <div class="chattools">
-          <button class="btn ghost" id="suggestBtn" type="button">灵感回复</button>
-          <button class="btn ghost" id="imgBtn" type="button">生图</button>
+          <button class="btn ghost" id="suggestBtn" type="button"><span class="ico" data-icon="sparkle"></span>灵感回复</button>
+          <button class="btn ghost" id="imgBtn" type="button"><span class="ico" data-icon="image"></span>生图</button>
           <span class="note" id="chatStat"></span>
           <span class="note chatHint" id="chatHint"></span>
         </div>
@@ -60,12 +60,12 @@
     <!-- 角色卡：列表 + 编辑器 -->
     <section class="view" id="view-cards">
       <header class="viewhead">
-        <h2>角色卡</h2>
+        <h2><span class="ico" data-icon="cards"></span>角色卡</h2>
         <div class="headacts">
-          <button class="btn ghost" id="genToggle" type="button">AI 生成</button>
-          <button class="btn ghost" id="pasteToggle" type="button">粘贴 JSON</button>
-          <button class="btn ghost" id="pickImport" type="button">导入文件</button>
-          <button class="btn primary" id="cardNew" type="button">新建</button>
+          <button class="btn ghost" id="genToggle" type="button"><span class="ico" data-icon="sparkle"></span>AI 生成</button>
+          <button class="btn ghost" id="pasteToggle" type="button"><span class="ico" data-icon="clipboard"></span>粘贴 JSON</button>
+          <button class="btn ghost" id="pickImport" type="button"><span class="ico" data-icon="upload"></span>导入文件</button>
+          <button class="btn primary" id="cardNew" type="button"><span class="ico" data-icon="plus"></span>新建</button>
         </div>
       </header>
       <div class="split" id="cardsSplit">
@@ -79,14 +79,14 @@
             <label>一句话描述你想要的角色
               <textarea id="genDesc" placeholder="例如：深夜书店的店主，话少，习惯给晚归的人留一盏灯。"></textarea>
             </label>
-            <div class="row"><button class="btn primary" id="genBtn" type="button">生成角色卡</button><span class="note" id="genStat"></span></div>
+            <div class="row"><button class="btn primary" id="genBtn" type="button"><span class="ico" data-icon="sparkle"></span>生成角色卡</button><span class="note" id="genStat"></span></div>
             <textarea id="genOut" class="mono" placeholder="生成结果会出现在这里……" readonly></textarea>
           </div>
           <p class="note" id="cardStat"></p>
           <div class="cardgrid" id="cardGrid"></div>
         </div>
         <div class="pane-detail" id="cardEditor" hidden>
-          <header class="panehead"><b id="ceTitle">编辑角色卡</b><button class="btn ghost" id="ceClose" type="button">关闭</button></header>
+          <header class="panehead"><b id="ceTitle">编辑角色卡</b><button class="btn ghost" id="ceClose" type="button"><span class="ico" data-icon="close"></span></button></header>
           <div class="editorbody">
             <div class="row"><img class="avatar big" id="ceAvatar" src="./icon.png" alt=""><span class="note" id="ceSource"></span></div>
             <label>名称<input id="ceName" placeholder="角色名"></label>
@@ -100,10 +100,10 @@
             <label>世界书<select id="ceBook"><option value="">不挂世界书</option></select></label>
             <label class="check"><input type="checkbox" id="ceBookEnabled"> 启用这本书</label>
             <div class="row">
-              <button class="btn primary" id="ceSave" type="button">保存</button>
+              <button class="btn primary" id="ceSave" type="button"><span class="ico" data-icon="check"></span>保存</button>
               <button class="btn ghost" id="ceCancel" type="button">取消</button>
               <button class="btn ghost" id="ceReset" type="button" hidden>恢复默认</button>
-              <button class="btn danger" id="ceDelete" type="button" hidden>删除</button>
+              <button class="btn danger" id="ceDelete" type="button" hidden><span class="ico" data-icon="trash"></span>删除</button>
             </div>
           </div>
         </div>
@@ -113,10 +113,10 @@
     <!-- 世界书：书库 + 编辑器 -->
     <section class="view" id="view-books">
       <header class="viewhead">
-        <h2>世界书</h2>
+        <h2><span class="ico" data-icon="book"></span>世界书</h2>
         <div class="headacts">
-          <button class="btn ghost" id="importBookBtn" type="button">导入 JSON</button>
-          <button class="btn primary" id="bookNew" type="button">新建</button>
+          <button class="btn ghost" id="importBookBtn" type="button"><span class="ico" data-icon="upload"></span>导入 JSON</button>
+          <button class="btn primary" id="bookNew" type="button"><span class="ico" data-icon="plus"></span>新建</button>
         </div>
       </header>
       <div class="split" id="booksSplit">
@@ -126,18 +126,18 @@
           <div class="booklist" id="bookList"></div>
         </div>
         <div class="pane-detail" id="bookEditor" hidden>
-          <header class="panehead"><b id="beTitle">编辑世界书</b><button class="btn ghost" id="beClose" type="button">关闭</button></header>
+          <header class="panehead"><b id="beTitle">编辑世界书</b><button class="btn ghost" id="beClose" type="button"><span class="ico" data-icon="close"></span></button></header>
           <div class="editorbody">
             <label>书名<input id="beName" placeholder="例如：雨夜书店"></label>
             <label>说明<textarea id="beDesc" rows="2" placeholder="这本书讲什么（只展示，不进提示词）"></textarea></label>
             <label>扫描深度（最近 N 条消息；0＝只看角色卡设定）<input id="beDepth" type="number" min="0" max="50" step="1"></label>
             <div class="row">
-              <button class="btn ghost" id="beExport" type="button">复制导出 JSON</button>
-              <button class="btn danger" id="beDelete" type="button">删除这本书</button>
+              <button class="btn ghost" id="beExport" type="button"><span class="ico" data-icon="download"></span>复制导出 JSON</button>
+              <button class="btn danger" id="beDelete" type="button"><span class="ico" data-icon="trash"></span>删除这本书</button>
             </div>
             <div class="subhead">条目 <span class="note" id="beCount"></span></div>
             <div id="beEntries"></div>
-            <button class="btn ghost" id="beAdd" type="button">＋ 添加条目</button>
+            <button class="btn ghost" id="beAdd" type="button"><span class="ico" data-icon="plus"></span>添加条目</button>
           </div>
         </div>
       </div>
@@ -145,10 +145,10 @@
 
     <!-- 设置 -->
     <section class="view" id="view-settings">
-      <header class="viewhead"><h2>设置</h2></header>
+      <header class="viewhead"><h2><span class="ico" data-icon="settings"></span>设置</h2></header>
       <div class="settingsgrid">
         <section class="panel">
-          <h3>模型与 Key</h3>
+          <h3><span class="ico" data-icon="key"></span>模型与 Key</h3>
           <label>服务商<select id="provSel"></select></label>
           <label>模型（可下拉选，也可手填）
             <input id="modelInput" list="modelList" placeholder="model-id">
@@ -160,30 +160,30 @@
           <label>API Key<input id="keyInput" type="password" autocomplete="off" placeholder="sk-…（只保存在本机）"></label>
           <div id="customBox" hidden><label>Base URL<input id="baseInput" placeholder="https://api.example.com/v1"></label></div>
           <div class="row">
-            <button class="btn primary" id="saveCfg" type="button">保存</button>
-            <button class="btn ghost" id="clearCfg" type="button">清除 Key</button>
+            <button class="btn primary" id="saveCfg" type="button"><span class="ico" data-icon="check"></span>保存</button>
+            <button class="btn ghost" id="clearCfg" type="button"><span class="ico" data-icon="trash"></span>清除 Key</button>
           </div>
           <p class="note" id="settingsSummary"></p>
           <p class="note">Key 以此设备上的浏览器密钥加密存放（WebCrypto）；安全性弱于 App 端系统级钥匙串，建议只在自己手机上用。豆包、腾讯、MiniMax 不允许网页直连。</p>
         </section>
 
         <section class="panel">
-          <h3>AI 生图测试</h3>
+          <h3><span class="ico" data-icon="image"></span>AI 生图测试</h3>
           <p class="note">用设置里的生图模型画一张，验证这家服务商允许网页直连。</p>
           <label>生图描述<textarea id="imgDesc" rows="3" placeholder="例如：深夜书店，暖黄台灯，窗上雨痕，写实漫画风格。"></textarea></label>
-          <div class="row"><button class="btn primary" id="imgGenBtn" type="button">试画一张</button><span class="note" id="imgStat"></span></div>
+          <div class="row"><button class="btn primary" id="imgGenBtn" type="button"><span class="ico" data-icon="sparkle"></span>试画一张</button><span class="note" id="imgStat"></span></div>
           <img id="imgOut" class="genimg" alt="生成结果" hidden>
         </section>
 
         <section class="panel">
-          <h3>数据与备份</h3>
+          <h3><span class="ico" data-icon="database"></span>数据与备份</h3>
           <p class="note">聊天记录、角色卡、世界书都只存在这台设备的浏览器里。备份 JSON 不含 API Key。</p>
-          <div class="row"><button class="btn primary" id="expBtn" type="button">生成并复制备份</button><button class="btn ghost" id="impBtn" type="button">导入备份</button></div>
+          <div class="row"><button class="btn primary" id="expBtn" type="button"><span class="ico" data-icon="download"></span>生成并复制备份</button><button class="btn ghost" id="impBtn" type="button"><span class="ico" data-icon="upload"></span>导入备份</button></div>
           <textarea id="backupTa" class="mono" rows="6" placeholder="备份 JSON 会出现在这里；要恢复时把 JSON 粘贴到这里再点「导入备份」。"></textarea>
         </section>
 
         <section class="panel">
-          <h3>外观</h3>
+          <h3><span class="ico" data-icon="sun"></span>外观</h3>
           <label>主题
             <select id="themeSel">
               <option value="auto">跟随系统</option>
@@ -195,9 +195,9 @@
         </section>
 
         <section class="panel">
-          <h3>关于</h3>
-          <p class="note">版本 <span id="settingsVer"></span>。演示、正版能力清单与下载入口在关于页。</p>
-          <p><a class="btn ghost" href="#/about">打开关于 / 下载</a></p>
+          <h3><span class="ico" data-icon="home"></span>关于</h3>
+          <p class="note">版本 <span id="settingsVer"></span>。演示、正版能力清单与下载入口在介绍页。</p>
+          <p><a class="btn ghost" href="#/about"><span class="ico" data-icon="chevron"></span>打开介绍 / 下载</a></p>
         </section>
       </div>
       <footer class="foot">
@@ -206,15 +206,42 @@
       </footer>
     </section>
 
-    <!-- 关于 / 推广 / 下载 -->
+    <!-- 介绍 / 推广 / 下载（首屏） -->
     <section class="view" id="view-about">
       <div class="about">
-        <header class="abouthead">
-          <h1>鲸鱼 · 本地 AI 角色扮演</h1>
-          <p class="lead">一款把模型选择权和数据都交给你的角色扮演 App：自带模型 Key，导入角色卡就能聊。安卓 + Windows，开源免费。</p>
-          <p class="meta">纯本地存储 · 自带 Key（BYOK）· 无服务器 · AGPL-3.0</p>
-          <div class="row"><a class="btn primary" href="#/chat">回到聊天</a><a class="btn ghost" href="#download">获取正版</a></div>
-        </header>
+        <section class="landing">
+          <div class="landing-copy">
+            <p class="eyebrow">本地优先 · BYOK · 开源</p>
+            <h1><span>把角色带在身边，</span><br><span>把数据留在自己手里。</span></h1>
+            <p class="lead">鲸鱼是一款纯本地的 AI 角色扮演 App。自带模型 Key，导入角色卡就能聊；聊天记录、世界书和 Key 都只留在你的设备上。</p>
+            <div class="row landing-cta">
+              <a class="btn primary big" href="#/chat"><span class="ico" data-icon="chat"></span>进入工作台</a>
+              <a class="btn ghost" href="#download"><span class="ico" data-icon="download"></span>下载 App</a>
+            </div>
+            <ul class="landing-points">
+              <li><span class="ico" data-icon="book"></span><span><b>多本世界书</b> 关键词命中才注入，不塞满上下文</span></li>
+              <li><span class="ico" data-icon="cards"></span><span><b>角色卡</b> 导入即聊，每张卡独立会话</span></li>
+              <li><span class="ico" data-icon="sparkle"></span><span><b>自带模型</b> 浏览器直连服务商，不经过中转</span></li>
+            </ul>
+          </div>
+          <div class="landing-visual">
+            <div class="product-window">
+              <div class="pw-bar"><span></span><span></span><span></span><b>鲸鱼 · 工作台</b></div>
+              <div class="pw-chat">
+                <div class="pw-head">
+                  <img src="./cards/card-shiguang-linwantang.png" alt="">
+                  <div><b>林晚棠</b><small>深夜书店的主理人</small></div>
+                  <span class="tag">世界书 · 雨夜书店</span>
+                </div>
+                <div class="pw-msgs">
+                  <div class="pw-msg me">外面下雨了，你还在吗？</div>
+                  <div class="pw-msg"><img src="./cards/card-shiguang-linwantang.png" alt=""><div>（放下手里的书，往窗外看了一眼。）<br>「进来吧，伞放门口。」</div></div>
+                </div>
+                <div class="pw-composer">说点什么…… <span class="ico" data-icon="send"></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section class="sec" id="demo">
           <h2>看一段演示</h2>
@@ -227,9 +254,9 @@
             </div>
             <div class="msgs demoMsgs" id="demoBox"></div>
             <div class="choices" id="demoChoices"></div>
-            <div class="chattools"><button class="btn ghost" id="demoReplay" type="button">重新播放</button><span class="note" id="demoHint"></span></div>
+            <div class="chattools"><button class="btn ghost" id="demoReplay" type="button"><span class="ico" data-icon="refresh"></span>重新播放</button><span class="note" id="demoHint"></span></div>
           </div>
-          <p class="note">想真聊？先去<a href="#/settings">设置</a>填一个你自己的模型 Key，请求由你的浏览器直连服务商。</p>
+          <p class="note">想真聊？去<a href="#/chat">工作台</a>，先在设置里填一个你自己的模型 Key；请求由你的浏览器直连服务商。</p>
         </section>
 
         <section class="sec" id="cap">
@@ -257,24 +284,24 @@
 
   <aside class="context" id="contextPanel">
     <div class="ctxblock">
-      <span class="ctxlabel">当前角色</span>
+      <span class="ctxlabel"><span class="ico" data-icon="cards"></span>当前角色</span>
       <b id="ctxName">—</b>
       <span class="ctxsub" id="ctxTag"></span>
-      <button class="linkbtn" id="ctxEditCard" type="button">编辑当前卡</button>
+      <button class="linkbtn" id="ctxEditCard" type="button"><span class="ico" data-icon="edit"></span>编辑当前卡</button>
     </div>
     <div class="ctxblock">
-      <span class="ctxlabel">世界书</span>
+      <span class="ctxlabel"><span class="ico" data-icon="book"></span>世界书</span>
       <select id="ctxBook"><option value="">不挂世界书</option></select>
       <label class="check"><input type="checkbox" id="ctxBookEnabled"> 启用</label>
-      <a class="linkbtn" href="#/books">管理世界书</a>
+      <a class="linkbtn" href="#/books"><span class="ico" data-icon="book"></span>管理世界书</a>
     </div>
     <div class="ctxblock">
-      <span class="ctxlabel">模型</span>
+      <span class="ctxlabel"><span class="ico" data-icon="key"></span>模型</span>
       <span id="ctxModel" class="ctxsub">—</span>
-      <a class="linkbtn" href="#/settings">模型与 Key</a>
+      <a class="linkbtn" href="#/settings"><span class="ico" data-icon="settings"></span>模型与 Key</a>
     </div>
     <div class="ctxblock">
-      <span class="ctxlabel">本会话</span>
+      <span class="ctxlabel"><span class="ico" data-icon="chat"></span>本会话</span>
       <span id="ctxSession" class="ctxsub">—</span>
       <span id="ctxHits" class="ctxsub"></span>
     </div>
@@ -282,15 +309,15 @@
 </div>
 
 <nav class="bottomnav">
-  <a href="#/chat" data-route="chat">聊天</a>
-  <a href="#/cards" data-route="cards">角色</a>
-  <a href="#/books" data-route="books">世界书</a>
-  <a href="#/settings" data-route="settings">设置</a>
+  <a href="#/chat" data-route="chat"><span class="ico" data-icon="chat"></span><span>聊天</span></a>
+  <a href="#/cards" data-route="cards"><span class="ico" data-icon="cards"></span><span>角色</span></a>
+  <a href="#/books" data-route="books"><span class="ico" data-icon="book"></span><span>世界书</span></a>
+  <a href="#/settings" data-route="settings"><span class="ico" data-icon="settings"></span><span>设置</span></a>
 </nav>
 
 <div class="modal" id="modal" hidden>
   <div class="modalbox" role="dialog" aria-modal="true">
-    <header class="panehead"><b id="modalTitle">编辑</b><button class="btn ghost" id="modalClose" type="button">关闭</button></header>
+    <header class="panehead"><b id="modalTitle">编辑</b><button class="btn ghost" id="modalClose" type="button"><span class="ico" data-icon="close"></span></button></header>
     <div class="editorbody" id="modalBody"></div>
     <div class="modalactions" id="modalActions"></div>
   </div>
